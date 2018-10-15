@@ -1,0 +1,282 @@
+.flex{ display:flex; }
+.flex-column{ flex-direction:column; }
+.flex__item{flex:1;}
+.red {
+    color: #FF1D25;
+}
+
+.green {
+    color: #58c24a;
+}
+
+.blue {
+    color: blue;
+}
+
+.white {
+    color: white;
+}
+
+.black {
+    color: black;
+}
+
+.c999 {
+    color: #999;
+}
+
+.c666 {
+    color: #666;
+}
+
+.c333 {
+    color: #333;
+}
+
+.c80 {
+    color: #808080;
+}
+
+
+.ft40 {
+    font-size: 40rpx;
+}
+
+.ft38 {
+    font-size: 38rpx;
+}
+
+.ft36 {
+    font-size: 36rpx;
+}
+
+.ft34 {
+    font-size: 34rpx;
+}
+
+.ft32 {
+    font-size: 32rpx;
+}
+
+.ft30 {
+    font-size: 30rpx;
+}
+
+.ft28 {
+    font-size: 28rpx;
+}
+
+.ft26 {
+    font-size: 26rpx;
+}
+
+.ft24 {
+    font-size: 24rpx;
+}
+
+.ft22 {
+    font-size: 22rpx;
+}
+
+.ft20 {
+    font-size: 20rpx;
+}
+
+/*背景*/
+.bg-red {
+    background-color: red;
+}
+
+.bg-green {
+    background-color: #58c24a;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.bg-e5 {
+    background-color: #e5e5e5;
+}
+
+.bg-f5 {
+    background-color: #f5f5f5;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.z-1{z-index:-1;}
+.z1 {
+    z-index: 1;
+}
+
+.z2 {
+    z-index: 2;
+}
+
+.z3 {
+    z-index: 3;
+}
+
+.z4 {
+    z-index: 4;
+}
+
+.z5 {
+    z-index: 5;
+}
+
+.z6 {
+    z-index: 6;
+}
+
+.z7 {
+    z-index: 7;
+}
+
+.z8 {
+    z-index: 8;
+}
+
+.z9 {
+    z-index: 9;
+}
+
+.z10 {
+    z-index: 10;
+}
+.mask{
+    background-color: rgba(0,0,0,0.7);
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    position: relative;
+    margin:0 auto;
+    font-size:0.26rem;
+    background:linear-gradient(#282828, #313131); /* 标准的语法 */;
+}
+
+.top{position: fixed;z-index: 10;width: 100%;height: 0.6rem;top: 0.3rem;justify-content: space-between;padding: 0 0.3rem;}
+.top .pic1{
+    width: 0.3rem;
+    height: 0.3rem;
+}
+.top .pic2{
+    width: 2.76rem;
+}
+.top .pic3{
+    width: 1.8rem;
+}
+
+.page_menu{
+    background-color: #313131;
+}
+.page_menu .pic1{
+width: 6.4rem;
+position: absolute;
+z-index: 1;
+}
+.page_menu .pic2{
+width: 100%;
+position: absolute;
+z-index: 1;
+}
+.page_menu .box{
+position: absolute;
+width: 6.4rem;
+height: 9.57rem;
+top: 0.3rem;
+left: 0;
+z-index: 2;
+}
+.page_menu .btn{
+position: absolute;
+z-index: 2;
+width: 1.2rem;
+}
+.page_menu .btn.btn1{
+left: 0.4rem;
+top: 0.65rem;
+}
+.page_menu .btn.btn2{
+left: 1.83rem;
+top: 1.15rem;
+}
+.page_menu .btn.btn3{
+left: 3.35rem;
+top: 1.6rem;
+}
+.page_menu .btn.btn4{
+left: 4.86rem;
+top: 2.1rem;
+}
+
+.pageSecond{}
+                        .pageSecond .pic1{
+    width: 4.97rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    margin-left: -2.49rem;
+}
+                        .pageSecond .pic2{
+    width: 5.63rem;
+    position: absolute;
+    top: 5.6rem;
+    left: 50%;
+    margin-left: -2.8rem;
+}
+
+
+    .page_loading{
+    z-index: 20;
+    background-color: #313232;
+}
+        .page_loading .box{
+    width: 1.9rem;
+    height: 2.3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -0.95rem;
+    margin-top: -1.15rem;
+}
+            .page_loading .circle{
+    width: 1.9rem;
+    height: 1.9rem;
+    position: relative;
+    margin-bottom: 0.1rem;
+}
+                .circle img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+                #percent{
+    width: 100%;
+    text-align: center;
+    color: #eed9b5;
+    height: 1.88rem;
+    line-height: 1.88rem;
+    font-weight: bold;
+}
+                .page_loading .box .txt{
+    width: 100%;
+    text-align: center;
+    color: #eed9b5;
+}
