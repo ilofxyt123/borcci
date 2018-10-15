@@ -116,3 +116,25 @@
     position: absolute;
     top: 7.7rem;
 }
+.panel5{}
+  .panel5 .title{
+    width: 2.24rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.12rem;
+    top: 1.26rem;
+}
+  .panel5 .pic2{
+    width: 5.72rem;
+    position: absolute;
+    top: 2.6rem;
+    left: 50%;
+    margin-left: -2.86rem;
+}
+  .panel5 .pic3{
+    width: 4.26rem;
+    top: 6.8rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -2.13rem;
+}

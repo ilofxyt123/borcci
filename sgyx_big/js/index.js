@@ -55,7 +55,7 @@
     ],
   }
   //切换按钮
-  var s = new Switch(4,JTs)
+  var s = new Switch(5,JTs)
   s.callbacks = {
     
     4:function(){
@@ -63,6 +63,12 @@
         'opacity':0
       })
     },
+    5:function(){
+      $("canvas").css({
+        'opacity':0
+      })
+    },
+
   }
 
   
@@ -70,14 +76,17 @@
   //材质切换
   $buttonMat1.on("touchend",function(){
     v3dApp.assignMat("GZ", "GZ_gtz_tex");
+    v3dApp.assignMat("TZ", "TZ_nyj_off");
     currentMatIndex = 0
   })
   $buttonMat2.on("touchend",function(){
     v3dApp.assignMat("GZ", "GZ_szb_tex");
+    v3dApp.assignMat("TZ", "TZ_yyh_off");
     currentMatIndex = 1
   })
   $buttonMat3.on("touchend",function(){
     v3dApp.assignMat("GZ", "GZ_ych_tex");
+    v3dApp.assignMat("TZ", "TZ_bsh_off");
     currentMatIndex = 2
 
   })

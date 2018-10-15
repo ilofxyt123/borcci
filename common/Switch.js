@@ -81,7 +81,7 @@ console.log(index)
       //下一个
       this.$buttonNext.on("touchend",function(){
 
-        if( scope.currentPanel == 4 ){
+        if( scope.currentPanel == this.number ){
 
           return
 
