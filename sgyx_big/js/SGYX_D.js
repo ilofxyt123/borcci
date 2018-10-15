@@ -102,7 +102,7 @@ window.addEventListener('load', function() {
         CustomPreloader.prototype = Object.assign(Object.create(v3d.Preloader.prototype), {
             onUpdate: function(percentage) {
                 v3d.Preloader.prototype.onUpdate.call(this, percentage);
-                if (updateCb) updateCb(percentage);
+                if (updateCb) updateCb( percentage );
             },
             onFinish: function() {
                 v3d.Preloader.prototype.onFinish.call(this);
@@ -126,8 +126,8 @@ window.addEventListener('load', function() {
     function runCode(app) {
         // add your code here, e.g. console.log('Hello, World!');
 
-        app.controls.maxDistance = 10000
-        app.camera.position.z = 5000
+        app.controls.maxDistance = 2000
+        app.camera.position.z = 2000
         app.scene.background = null
         
 
