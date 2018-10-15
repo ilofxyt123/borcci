@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Borcci</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <script src="../common/resetRem.js"></script>
+
+    <!--<script>
+        var css;
+        css = '<'+'link '+'href='+"../common/common.css?v"+Math.random()+' rel='+"stylesheet "+'type='+"text/css"+'>';
+        document.write(css);
+        css = '<'+'link '+'href='+"./css/index.css?v"+Math.random()+' rel='+"stylesheet "+'type='+"text/css"+'>';
+        document.write(css);
+
+    </script>-->
+    <link href="../common/reset.css" rel="stylesheet" type="text/css">
+    <link href="../common/common.css" rel="stylesheet" type="text/css">
+    <link href="./css/index.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<div class="container" id="main">
+    <!--公共部分-->
+    <!--菜单栏-->
+    <div class="top flex">
+        <img src="../assets/common/menu_button.png" alt="" class="pic1" id="menu">
+        <!-- <img src="../assets/common/logo.png" alt="" class="pic2" id="logo"> -->
+        <img src="../assets/common/logo2.png" alt="" class="pic3" id="logo">
+    </div>
+
+    <!--菜单页-->
+    <div class="container page page_menu z4" id="pageMenu" style="display:none;">
+
+        <img src="../assets/common/menu_bg.png" alt="" class="pic1">
+
+        <div class="box">
+            <img src="../assets/common/menu_bg2.png" alt="" class="pic2">
+            <img src="../assets/common/menu_1.png" alt="" class="btn btn1" id="menu1">
+            <img src="../assets/common/menu_2.png" alt="" class="btn btn2" id="menu2">
+            <img src="../assets/common/menu_3.png" alt="" class="btn btn3" id="menu3">
+            <img src="../assets/common/menu_4.png" alt="" class="btn btn4" id="menu4">
+        </div>
+
+    </div>
+
+    <!--二级导航__大小户型-->
+    <div class="container page pageSecond z2" id="pageSecond" style="display:none;">
+        <img src="../assets/home/small.png" alt="" class="pic1" id="small">
+        <img src="../assets/home/big.png" alt="" class="pic2" id="big">
+    </div>
+
+    <!--产品加载页-->
+    <div class="container page page_loading" id="page_loading">
+        <div class="box">
+            <div class="circle">
+                <img src="../assets/Loading_circle.png" alt="">
+                <div id="percent">0%</div>
+            </div>
+            <div class="txt">
+                Loading...
+            </div>
+        </div>
+    </div>
+
+    <!--产品详情页面-->
+    <div class="container page page_player z3" id="container">
+
+        <div class="player" id="player">
+
+        </div>
+
+        <div class="switch_box flex">
+            
+            <img src="../assets/arrow_l.png" alt="" class="left" id="prev">
+            <div class="point" id="point1" data-index="1">
+                <img src="../assets/point.png" alt="" class="outter">
+                <img src="../assets/point_active.png" alt="" class="inner" style="display:block">
+            </div>
+            <div class="point" id="point2" data-index="2">
+                <img src="../assets/point.png" alt="" class="outter">
+                <img src="../assets/point_active.png" alt="" class="inner">
+            </div>
+            <div class="point" id="point3" data-index="3">
+                <img src="../assets/point.png" alt="" class="outter">
+                <img src="../assets/point_active.png" alt="" class="inner">
+            </div>
+            <div class="point" id="point4" data-index="4">
+                <img src="../assets/point.png" alt="" class="outter">
+                <img src="../assets/point_active.png" alt="" class="inner">
+            </div>
+            
+            <img src="../assets/arrow_r.png" alt="" class="right" id="next">
+        </div>
+
+        <div class="panel_box">
+            <!--材质切换-->
+            <div class="panel panel1" id="panel1" style="">
+                <div class="btn_group flex">
+                    <img src="../assets/sgyx_big/swiper1_mat1.png" alt="" class="btn" id="btn1">
+                    <img src="../assets/sgyx_big/swiper1_mat2.png" alt="" class="btn" id="btn2">
+                    <img src="../assets/sgyx_big/swiper1_mat3.png" alt="" class="btn" id="btn3">
+                </div>
+            </div>
+            <!--背墙-->
+            <div class="panel panel2" id="panel2" style="display:none;">
+                <img src="../assets/sgyx_big/swiper2_txt.png" alt="" class="txt">
+            </div>
+            <!--操作体验-->
+            <div class="panel panel3" id="panel3" style="display:none;">
+                <div class="button1" id="buttonLight">
+                    <img src="../assets/sgyx_big/swiper3_light.png" alt="" class="normal">
+                    <img src="../assets/sgyx_big/swiper3_light_active.png" alt="" class="active" style="display:none;">
+                </div>
+                <div class="button2" id="buttonVoice">
+                    <img src="../assets/sgyx_big/swiper3_voice.png" alt="" class="normal">
+                    <img src="../assets/sgyx_big/swiper3_voice_active.png" alt="" class="active" style="display:none;">
+                </div>
+                <div class="txt_group">
+                    <img src="../assets/sgyx_big/swiper3_init_txt.png" alt="" class="txt_init">
+                    <img src="../assets/sgyx_big/swiper3_light_txt.png" alt="" class="txt_light" style="display:none;">
+                    <img src="../assets/sgyx_big/swiper3_voice_txt.png" alt="" class="txt_voice" style="display:none;">
+                </div>
+            </div>
+            <!--环保材质-->
+            <div class="panel panel4" id="panel4" style="display:none;">
+
+                <img src="../assets/sgyx_big/swiper4_poster.png" alt="" class="poster">
+                <img src="../assets/sgyx_big/swiper4_title.png" alt="" class="title">
+                <img src="../assets/sgyx_big/swiper4_txt.png" alt="" class="txt">
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../lib/v3d.js"></script>
+<script src="./js/SGYX_D.js"></script>
+<!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+<script src="../lib/jquery.min.js"></script>
+
+<script src="../common/Router.js"></script>
+<script src="../common/Switch.js"></script>
+<script>
+    var js;
+    js = '<' + 'script ' + 'src=' + "js/index.js?v" + Math.random() + '>' + '</' + 'script' + '>'
+    document.write(js)
+</script>
+</body>
+</html>

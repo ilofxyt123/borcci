@@ -1,0 +1,442 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab">
+    <block type="initSettings" id="^N16~WGc/.{cif2Kmr9b" x="-30" y="-370">
+      <field name="LOAD_COMP_ASSETS">TRUE</field>
+      <field name="FULLSCREEN">TRUE</field>
+      <field name="BKG_TRANSPARENCY">FALSE</field>
+      <field name="PRESERVE_DRAW_BUF">FALSE</field>
+      <field name="FADE_ANNOTATIONS">TRUE</field>
+    </block>
+  </tab>
+  <tab name="Main" type="MainTab">
+    <block type="stopAnimation" id="gaiKN~z0RI1k8$#_(Bt," x="-370" y="-650">
+      <value name="VALUE">
+        <block type="animationList" id="kl_b?JdIh86WCrUhI$/O">
+          <field name="FIELDNAME">YX</field>
+        </block>
+      </value>
+    </block>
+    <block type="whenClicked" id="rNVK^iTt5`8jJPe40JBO" x="-350" y="-590">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id=":$V6{E*]G@+sSy)Xii4[">
+          <field name="FIELDNAME">HXD_k</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="assignMaterial" id="1QUhot^8MIx{7!TnFq8^">
+          <value name="VALUE2">
+            <block type="materialList" id="bHoFO)Dpz|Jcq:3o2z$,">
+              <field name="FIELDNAME">HXD_on</field>
+            </block>
+          </value>
+          <value name="VALUE1">
+            <block type="objectList" id="_RINfjyf*kEleZ.v|$0f">
+              <field name="FIELDNAME">HXD</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="QB$:o-7fXif_9~CZ54!*" x="-350" y="-510">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="^n3uD]1)aH(c5-N]O=VV">
+          <field name="FIELDNAME">HXD_g</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="assignMaterial" id="O?0G#-I.e^{g{[4@:^e,">
+          <value name="VALUE2">
+            <block type="materialList" id="t/7pvGG5_z]*(+TPmk3L">
+              <field name="FIELDNAME">HXD_off</field>
+            </block>
+          </value>
+          <value name="VALUE1">
+            <block type="objectList" id="aP+]$JL=W3OwboBFV4ov">
+              <field name="FIELDNAME">HXD</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="E{CF9)1M{hN`rjP/}8Bd" x="-350" y="-430">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id=";uy:;ih~utY%ZGC3D7n$">
+          <field name="FIELDNAME">QRGT_k</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="assignMaterial" id="dG]/Ss!???o5bh[LGF@p">
+          <value name="VALUE2">
+            <block type="materialList" id="B*cmyY_~oq}a!AJW5sUO">
+              <field name="FIELDNAME">TZ_nyj_on</field>
+            </block>
+          </value>
+          <value name="VALUE1">
+            <block type="objectList" id="F)r+jPHV[ydKk:-;af6L">
+              <field name="FIELDNAME">TZ</field>
+            </block>
+          </value>
+          <next>
+            <block type="assignMaterial" id="A1S-@p)[.PVl,CWh(0N0">
+              <value name="VALUE2">
+                <block type="materialList" id="u-Y5rSS1hpaI]hHgI35u">
+                  <field name="FIELDNAME">GZ_gtz_tex</field>
+                </block>
+              </value>
+              <value name="VALUE1">
+                <block type="objectList" id="9}8,ey9}jxhoF]|Ie8NX">
+                  <field name="FIELDNAME">GZ</field>
+                </block>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="mkRx$MS)/bDj]*k:m^Y3" x="-350" y="-270">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="B8EvW+x90~rnUUhDch%G">
+          <field name="FIELDNAME">QRGT_g</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="assignMaterial" id="8xrqZ/,SGS8aPE0d+O4o">
+          <value name="VALUE2">
+            <block type="materialList" id="k6kg(P8^sP0S{;%Mej*Z">
+              <field name="FIELDNAME">TZ_nyj_off</field>
+            </block>
+          </value>
+          <value name="VALUE1">
+            <block type="objectList" id="cXbl~S:#hl5SV:]Yr^+a">
+              <field name="FIELDNAME">TZ</field>
+            </block>
+          </value>
+          <next>
+            <block type="assignMaterial" id="o*{e)fd6g-@UUU+9urNd">
+              <value name="VALUE2">
+                <block type="materialList" id="3|fi2J0Qc|Sp1H,|K[f1">
+                  <field name="FIELDNAME">GZ_gtz_tex</field>
+                </block>
+              </value>
+              <value name="VALUE1">
+                <block type="objectList" id="3t9]QZ;5GgJEO{1{[=I!">
+                  <field name="FIELDNAME">GZ</field>
+                </block>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="TC.jH_rZr@MSF;CVe7Pb" x="-350" y="-110">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="|aCz7/Ff-u[f!dLyNm:4">
+          <field name="FIELDNAME">ZLYG_k</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="assignMaterial" id=")++rm~snz%#JhP20-Cbl">
+          <value name="VALUE2">
+            <block type="materialList" id="}1qub@jZhWEY!}I6jInR">
+              <field name="FIELDNAME">TZ_yyh_on</field>
+            </block>
+          </value>
+          <value name="VALUE1">
+            <block type="objectList" id="b)62OV|1/dld_FUd.h[n">
+              <field name="FIELDNAME">TZ</field>
+            </block>
+          </value>
+          <next>
+            <block type="assignMaterial" id="6]c!?JUWju.R7;oIVGq9">
+              <value name="VALUE2">
+                <block type="materialList" id="orPEgv((]#Tj+GFlE=bp">
+                  <field name="FIELDNAME">GZ_szb_tex</field>
+                </block>
+              </value>
+              <value name="VALUE1">
+                <block type="objectList" id="Amo~c[@YBqquRZb/RS`n">
+                  <field name="FIELDNAME">GZ</field>
+                </block>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="W[Di?I~Jr:Qq`$aP2/`," x="-350" y="50">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="*Ta]^o*C95~AijZv^00$">
+          <field name="FIELDNAME">ZLYG_g</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="assignMaterial" id="DEn(vK)_E5OkVN-t4JN#">
+          <value name="VALUE2">
+            <block type="materialList" id="NE3FoN.S-o|k9*#;ok%N">
+              <field name="FIELDNAME">TZ_yyh_off</field>
+            </block>
+          </value>
+          <value name="VALUE1">
+            <block type="objectList" id="q1/]Vscn,r#.r_m^UO@A">
+              <field name="FIELDNAME">TZ</field>
+            </block>
+          </value>
+          <next>
+            <block type="assignMaterial" id="}Gxf@E![I^H5~2@_28yV">
+              <value name="VALUE2">
+                <block type="materialList" id="hat)]nH)TlOT,g*)3$Fo">
+                  <field name="FIELDNAME">GZ_szb_tex</field>
+                </block>
+              </value>
+              <value name="VALUE1">
+                <block type="objectList" id="JT66w9{-F$yF3ELb7JZ6">
+                  <field name="FIELDNAME">GZ</field>
+                </block>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="#kzVvrKk1_(o5H$#xKh:" x="-350" y="230">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="%)Q?aFI]cx100Sn?3?_.">
+          <field name="FIELDNAME">KYXG_k</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="assignMaterial" id="#[K6bP[^@L`[WHAdwB+E">
+          <value name="VALUE2">
+            <block type="materialList" id="s*_:a)$Fw^kFT~_0z^GU">
+              <field name="FIELDNAME">TZ_bsh_on</field>
+            </block>
+          </value>
+          <value name="VALUE1">
+            <block type="objectList" id="U-3_9wO$wERQ2oct3W#p">
+              <field name="FIELDNAME">TZ</field>
+            </block>
+          </value>
+          <next>
+            <block type="assignMaterial" id="2+_tQHtKOoS-=l2XAwtQ">
+              <value name="VALUE2">
+                <block type="materialList" id="KqCEf=#`}eOGql5GSdn(">
+                  <field name="FIELDNAME">GZ_ych_tex</field>
+                </block>
+              </value>
+              <value name="VALUE1">
+                <block type="objectList" id="2|@*@*zrK(@k78t)HW;M">
+                  <field name="FIELDNAME">GZ</field>
+                </block>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="j`ia0v@LF(O)COdCvj6=" x="-350" y="410">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="@Q-q3,gX1c$-BiK%a9R/">
+          <field name="FIELDNAME">KYXG_g</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="assignMaterial" id="8:c9Ld-x@XwF~ugq|P)?">
+          <value name="VALUE2">
+            <block type="materialList" id="-%PwNO%d3qZOSj7TNoL`">
+              <field name="FIELDNAME">TZ_bsh_off</field>
+            </block>
+          </value>
+          <value name="VALUE1">
+            <block type="objectList" id="Ab$INUY5;~/7nY?W.=/M">
+              <field name="FIELDNAME">TZ</field>
+            </block>
+          </value>
+          <next>
+            <block type="assignMaterial" id="zls+NhW`6be^),~wi]=L">
+              <value name="VALUE2">
+                <block type="materialList" id="][pJCfP=7*V_,e@,;Mw`">
+                  <field name="FIELDNAME">GZ_ych_tex</field>
+                </block>
+              </value>
+              <value name="VALUE1">
+                <block type="objectList" id="HG#b1t+@zU!_tES,Pdhv">
+                  <field name="FIELDNAME">GZ</field>
+                </block>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="wvfYgo?bWyd/AEJn}y_o" x="-330" y="610">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="S}!s:T1TWB=v:]{PG,JD">
+          <field name="FIELDNAME">JT1</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="tweenCameraExt" id="BM%NX(SWy*5*6#+w^r%E">
+          <value name="POSITION">
+            <block type="objectList" id="_.ui{nVUbloYY3B*zR4d">
+              <field name="FIELDNAME">PhysCamera007</field>
+            </block>
+          </value>
+          <value name="LOOKAT">
+            <block type="objectList" id="e4vziGl.*LGD4w3*2|c,">
+              <field name="FIELDNAME">PhysCamera007.Target</field>
+            </block>
+          </value>
+          <value name="DURATION">
+            <shadow type="math_number" id="wELJr%W2%?kU5AF:K%jE">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="6deC5kK}Qh1aE9Nu7--u" x="-330" y="690">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="PVQFAg?P?PlVYlEE^_!(">
+          <field name="FIELDNAME">JT2</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="tweenCameraExt" id="ngOe$%Ui~=b2{v9}hyd.">
+          <value name="POSITION">
+            <block type="objectList" id="7(k,6msvq8$m`;-p1lxU">
+              <field name="FIELDNAME">PhysCamera002</field>
+            </block>
+          </value>
+          <value name="LOOKAT">
+            <block type="objectList" id="ThBKFI51%2_nFioe|r[r">
+              <field name="FIELDNAME">PhysCamera002.Target</field>
+            </block>
+          </value>
+          <value name="DURATION">
+            <shadow type="math_number" id="I-Gy5;IH33zPomTY!?D8">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="Bg@0w[=r2%fq+AWTi=AV" x="-330" y="790">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="6-;3Y+{|_K`Kr_evc;Qe">
+          <field name="FIELDNAME">JT3</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="tweenCameraExt" id="(Qh+}pqJ0^h9l|$t}vk_">
+          <value name="POSITION">
+            <block type="objectList" id="xzunXGw[OMwM30Mly68O">
+              <field name="FIELDNAME">PhysCamera003</field>
+            </block>
+          </value>
+          <value name="LOOKAT">
+            <block type="objectList" id="6)4Fktf;kWF8+n6j~6XX">
+              <field name="FIELDNAME">PhysCamera003.Target</field>
+            </block>
+          </value>
+          <value name="DURATION">
+            <shadow type="math_number" id="$Y]U{GYsgV(V:B.PWfzq">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="o`/8rvSEi7c?@wTz/HHF" x="-330" y="890">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="aMQb.Mo!+[Nev1]yq0?h">
+          <field name="FIELDNAME">JT4</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="tweenCameraExt" id="?W:P6XpXRo!C_M,Jm.Xf">
+          <value name="POSITION">
+            <block type="objectList" id="E+hsKsdo_Alv`P=~_XNW">
+              <field name="FIELDNAME">PhysCamera004</field>
+            </block>
+          </value>
+          <value name="LOOKAT">
+            <block type="objectList" id="RifUSS9o8~o]`Qt0RfYp">
+              <field name="FIELDNAME">PhysCamera004.Target</field>
+            </block>
+          </value>
+          <value name="DURATION">
+            <shadow type="math_number" id="Zc568#WNORmQ~#*MSCUN">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="@DX(1PCPE|yUXv)HO8%r" x="-310" y="990">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="T%w=h/n~_%Tk/!Dni,+O">
+          <field name="FIELDNAME">JT5</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="tweenCameraExt" id="28$(kXT)$OWG4~dDkg-u">
+          <value name="POSITION">
+            <block type="objectList" id="WhtS=fg~.k@ch:f@4oTO">
+              <field name="FIELDNAME">PhysCamera005</field>
+            </block>
+          </value>
+          <value name="LOOKAT">
+            <block type="objectList" id="KT@Ow_SKQ/M=#[Ibm9VH">
+              <field name="FIELDNAME">PhysCamera005.Target</field>
+            </block>
+          </value>
+          <value name="DURATION">
+            <shadow type="math_number" id="xS,abIY|LDk9S.;OKW{c">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block type="whenClicked" id="#mXO7MA9zm1%L0YM0FP)" x="-310" y="1090">
+      <mutation enableifmissed="false"></mutation>
+      <value name="VALUE">
+        <block type="objectList" id="rj:)NRED}/0[b`To{5QP">
+          <field name="FIELDNAME">JT6</field>
+        </block>
+      </value>
+      <statement name="DO">
+        <block type="tweenCameraExt" id="~:_97Nk8y~xG7RGg?bt5">
+          <value name="POSITION">
+            <block type="objectList" id=".}CjubA@}E~qTR$?O`sN">
+              <field name="FIELDNAME">PhysCamera006</field>
+            </block>
+          </value>
+          <value name="LOOKAT">
+            <block type="objectList" id="[KxcQ#F}t;,Z4?%YU9`r">
+              <field name="FIELDNAME">PhysCamera006.Target</field>
+            </block>
+          </value>
+          <value name="DURATION">
+            <shadow type="math_number" id="C=fKTdL@cBEDk:~Id,r}">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+  </tab>
+</xml>
