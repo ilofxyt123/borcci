@@ -148,7 +148,7 @@ PL.init = function(appInstance, initOptions) {
 
 
         // playAnimation, playAnimationExt and stopAnimation blocks
-        function operateAnimation(operation, animations, from, to, loop, timeScale, callback) {
+        function operateAnimation( operation, animations, from, to, loop, timeScale, callback ) {
             if (!animations) return;
             // input can be either single obj or array of objects
             if (typeof animations == "string") animations = [animations];
@@ -489,7 +489,7 @@ function swizzleVec3(vec) {
 
 
 
-operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
+// operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
 
 registerOnClick("HXD_k", function() {
   assignMat("HXD", "HXD_on");

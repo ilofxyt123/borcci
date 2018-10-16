@@ -116,6 +116,7 @@
 }
 
 .z-1{z-index:-1;}
+
 .z1 {
     z-index: 1;
 }
@@ -178,7 +179,7 @@ html,body{
     width: 2.76rem;
 }
 .top .pic3{
-    width: 1.8rem;
+    width: 1.9rem;
 }
 
 .page_menu{
