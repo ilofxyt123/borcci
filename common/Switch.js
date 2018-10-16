@@ -73,7 +73,8 @@ console.log(index)
       this.$button.on("touchend",function( e ){
 
         var index = e.currentTarget.dataset['index']
-        
+
+          index = Number( index )
         scope.switchTab( index )
 
       })
@@ -86,7 +87,7 @@ console.log(index)
           return
 
         }
-        var index = scope.currentPanel + 1
+        var index = Number( scope.currentPanel ) + 1
         scope.switchTab( index )
 
       })
@@ -99,7 +100,7 @@ console.log(index)
           return
 
         }
-        var index = scope.currentPanel - 1
+        var index = Number ( scope.currentPanel ) - 1
         scope.switchTab( index )
         
       })
