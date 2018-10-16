@@ -489,7 +489,7 @@ function swizzleVec3(vec) {
 
 
 
-operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
+// operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
 
 registerOnClick("HXD_k", function() {
   assignMat("HXD", "HXD_on");

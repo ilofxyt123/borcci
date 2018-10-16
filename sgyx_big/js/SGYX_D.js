@@ -91,10 +91,22 @@ window.addEventListener('load', function() {
         }
 
         sceneURL = initOptions.useCompAssets ? sceneURL + '.xz' : sceneURL;
-        app.load(sceneURL, function() {
+        app.load(sceneURL, function( e ) {
+            console.log(e)
             app.enableControls();
-            app.preloader.onFinish()
+            // app.preloader.onFinish()
             app.run();
+            // app.scene.traverse(function( mesh ){
+            //     mesh.matrixAutoUpdate = false
+            // })
+            // app.scene.matrixAutoUpdate = true
+            // setTimeout(() => {
+            //     app.run()
+                // app.scene.traverse(function( mesh ){
+                //     mesh.matrixAutoUpdate = true
+                // })
+            // }, 800);
+            
 
             if ( v3d.PE ) v3d.PE.updateAppInstance( app );
             if ( v3d.PL ) v3d.PL.init( app );
