@@ -7,6 +7,7 @@
 
   //灯光按钮
   var $buttonLight = $("#buttonLight")
+  var $buttonVoice = $("#buttonVoice")
 
     //菜单按钮
   var router = new Router()
@@ -92,25 +93,70 @@
   })
 
   var lightStatus = 0//默认是关着的灯
+  var voiceStatus = 0//默认是关着的音响
   $buttonLight.on("touchend",function(){
 
     if( lightStatus == 0 ){
 
-      lightStatus = 1//开
-      $(".button1 .normal").hide()
-      $(".button1 .active").show()
+      closeVoice()
+      openLight()
 
     }
     else{
 
-      lightStatus = 0//关
-      $(".button1 .normal").show()
-      $(".button1 .active").hide()
+      closeLight()
 
     }
+
+  
+    
     LIGHTs[ currentMatIndex ][ lightStatus ]()
 
   })
+
+  $buttonVoice.on("touchend",function(){
+
+    if( voiceStatus == 0 ){
+
+      closeLight()
+      openVoice()
+
+    }
+    else{
+
+      closeVoice()
+
+    }
+  })
+
+  function closeLight(){
+    lightStatus = 0//关buttonLight
+      $(".button1 .normal").show()
+      $(".button1 .active").hide()
+      $(".txt_light").hide()
+      $(".txt_init").show()
+  }
+  function closeVoice(){
+    voiceStatus = 0//关buttonLight
+      $(".button2 .normal").show()
+      $(".button2 .active").hide()
+      $(".txt_voice").hide()
+      $(".txt_init").show()
+  }
+  function openLight(){
+      lightStatus = 1//开
+      $(".button1 .normal").hide()
+      $(".button1 .active").show()
+      $(".txt_group img").hide()
+      $(".txt_light").show()
+  }
+  function openVoice(){
+    voiceStatus = 1//开
+      $(".button2 .normal").hide()
+      $(".button2 .active").show()
+      $(".txt_group img").hide()
+      $(".txt_voice").show()
+  }
 
 
 

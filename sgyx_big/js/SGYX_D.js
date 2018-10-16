@@ -12,33 +12,45 @@ window.addEventListener('load', function() {
         var PUZZLES_DIR = '../../puzzles/';
         var logicURL = params.logic ? params.logic : '__LOGIC__visual_logic.js'.replace('__LOGIC__', '');
         var sceneURL = params.load ? params.load : '__URL__SGYX_D.gltf'.replace('__URL__', '');
+
         if (!sceneURL) {
+
             console.log('No scene URL specified');
             return;
+
         }
 
         // some puzzles can benefit from cache
         v3d.Cache.enabled = true;
 
-        if (v3d.AppUtils.isXML(logicURL)) {
+        if ( v3d.AppUtils.isXML(logicURL)) {
             var logicURLJS = logicURL.match(/(.*)\.xml$/)[1] + '.js';
+
             new v3d.PuzzlesLoader().loadEditorWithLogic(PUZZLES_DIR, logicURLJS,
                 function() {
+
                     var initOptions = v3d.PL ? v3d.PL.execInitPuzzles().initOptions
                         : { useFullscreen: false };
                     loadScene(sceneURL, initOptions);
+
                 }
             );
         }
         else if (v3d.AppUtils.isJS(logicURL)) {
+
             new v3d.PuzzlesLoader().loadLogic(logicURL, function() {
+
                 var initOptions = v3d.PL ? v3d.PL.execInitPuzzles().initOptions
                     : { useFullscreen: false };
                 loadScene(sceneURL, initOptions);
+
             });
+
         }
         else {
+
             loadScene(sceneURL, { useFullscreen: true });
+
         }
     })();
 
@@ -72,7 +84,8 @@ window.addEventListener('load', function() {
         if (initOptions.preloaderStartCb) initOptions.preloaderStartCb();
         if (initOptions.useFullscreen) {
 
-        } else {
+        } 
+        else {
             var fsButton = document.getElementById('fullscreen_button');
             if (fsButton) fsButton.style.display = 'none';
         }
@@ -83,13 +96,17 @@ window.addEventListener('load', function() {
             app.preloader.onFinish()
             app.run();
 
-            if (v3d.PE) v3d.PE.updateAppInstance(app);
-            if (v3d.PL) v3d.PL.init(app);
+            if ( v3d.PE ) v3d.PE.updateAppInstance( app );
+            if ( v3d.PL ) v3d.PL.init( app );
 
-            runCode(app);
+            runCode( app );
+
         }, function() {
+
             console.log('Can\'t load the scene ' + sceneURL);
+
         }, false);
+
         window.v3dApp = app
         return app;
     }
@@ -100,13 +117,13 @@ window.addEventListener('load', function() {
         }
 
         CustomPreloader.prototype = Object.assign(Object.create(v3d.Preloader.prototype), {
-            onUpdate: function(percentage) {
+            onUpdate: function( percentage ) {
                 v3d.Preloader.prototype.onUpdate.call(this, percentage);
-                if (updateCb) updateCb( percentage );
+                if ( updateCb ) updateCb( percentage );
             },
             onFinish: function() {
                 v3d.Preloader.prototype.onFinish.call(this);
-                if (finishCb) finishCb();
+                if ( finishCb ) finishCb();
             }
         });
 

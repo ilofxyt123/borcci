@@ -148,7 +148,7 @@ PL.init = function(appInstance, initOptions) {
 
 
         // playAnimation, playAnimationExt and stopAnimation blocks
-        function operateAnimation(operation, animations, from, to, loop, timeScale, callback) {
+        function operateAnimation( operation, animations, from, to, loop, timeScale, callback ) {
             if (!animations) return;
             // input can be either single obj or array of objects
             if (typeof animations == "string") animations = [animations];
