@@ -20,10 +20,10 @@ function Switch( number, JTs ){
 Switch.prototype = {
 
   switchTab : function( index ){
-console.log(index)
+
     //记录页面
     this.currentPanel = index
-    this.currentIndex = index - 1 
+    this.currentIndex = index - 1
 
     //indicator样式切换
     this.$allInner.hide()
@@ -34,18 +34,22 @@ console.log(index)
     $("#panel" + index ).show()
 
 
-    if( this.callbacks.hasOwnProperty( index )){
+    if(this.callbacks.hasOwnProperty( index )){
 
-      this.callbacks[ index ]()
-
-    }
-    else{
-
-      $("canvas").css({
-        'opacity':1,
-      })
+        this.callbacks[ index ]()
 
     }
+
+
+        if( index !=4 && index != 5 ){
+
+            $("canvas").css({
+                'opacity':1,
+            })
+
+        }
+
+
     //镜头切换
     if( this.JTs.length >= index ){
 
