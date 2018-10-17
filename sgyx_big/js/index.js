@@ -10,7 +10,10 @@
   var $buttonVoice = $("#buttonVoice")
 
     //菜单按钮
-  var router = new Router()
+  var router = new Router({
+    isCanvas:true
+  })
+  router.openPageCanvas()
   var music = new Music({
       AudioID : "voice"
   })
@@ -67,6 +70,7 @@
   }
   //切换按钮
   var s = new Switch(5,JTs)
+
   s.callbacks = {
     1:function(){
 
