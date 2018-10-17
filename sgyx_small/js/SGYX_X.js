@@ -91,18 +91,22 @@ window.addEventListener('load', function() {
         app.load(sceneURL, function() {
             
             var $percent = $("#percent")
-            app.scene.traverse(function( mesh ){
-                mesh.visible = false
-            })
-            app.scene.visible = true
-            setTimeout(() => {
-                // app.run()
-                var t = 0
-                var n = 0
-                var now = 0
-                app.scene.traverse(function( mesh ){
+            var n = 0
+            app.scene.traverse(function( object ){
+                if( object instanceof v3d.Mesh ){
                     n++
-                    t = n * 100
+                    object.visible = false
+                    object.matrixAutoUpdate = false
+                }
+            })
+            setTimeout(() => {
+                var t = 0
+                var now = 0
+                var index = 0
+                app.scene.traverse(function( mesh ){
+                    if( !(mesh instanceof v3d.Mesh) ){ return }
+                    index++
+                    t = index * 100
                     setTimeout(function(){
                         now++
                         var percent = Math.floor( 50 +  (now / n)*50)

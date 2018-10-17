@@ -95,15 +95,24 @@ window.addEventListener('load', function() {
             console.log(e)
             app.enableControls();
             // app.preloader.onFinish()
+        
+            app.scene.traverse(function( object ){
+                if( object instanceof v3d.Mesh ){
+                    object.matrixAutoUpdate = false
+                }
+            })
+            
             app.run();
-            // app.scene.traverse(function( mesh ){
-            //     mesh.matrixAutoUpdate = false
-            // })
+            // console.log('顶点总数',v)
             // app.scene.matrixAutoUpdate = true
             // setTimeout(() => {
             //     app.run()
-                // app.scene.traverse(function( mesh ){
-                //     mesh.matrixAutoUpdate = true
+                // app.scene.traverse(function( object ){
+
+                //     if( object instanceof v3d.Mesh ){
+                //         object.matrixAutoUpdate = false
+                //     }
+                    
                 // })
             // }, 800);
             

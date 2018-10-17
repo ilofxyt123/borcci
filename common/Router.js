@@ -1,5 +1,9 @@
 //菜单按钮
-function Router(){
+function Router(config){
+
+    var options = {isCanvas:false}
+    $.extend( options, config )
+
 
     this._menuClose = true//菜单开关状态
 
@@ -7,6 +11,7 @@ function Router(){
     this.$logo = $("#logo")//logo jq
 
     this.$page1 = $("#page1")//首页jq
+    this.$page_canvas = $("#container")
     this.$pageMenu = $("#pageMenu")//菜单页面jq
     this.$pageSecond = $("#pageSecond")//时光印象二级导航jq
 
@@ -17,6 +22,9 @@ function Router(){
 
     this.$small = $("#small")
     this.$big= $("#big")
+
+    this.isCanvas = options.isCanvas
+
 
 
 
@@ -89,6 +97,12 @@ Router.prototype = {
 
     },
 
+    openPageCanvas:function(){
+
+        this.$page_canvas.show()
+        this._record[0] = this.$page_canvas
+
+    },
     closePage1 : function(){
 
         this.$page1.hide()
@@ -105,13 +119,26 @@ Router.prototype = {
             if( scope._menuClose ){
 
                 scope._openMenu()
-                scope._record[0].hide()
+                if( scope.isCanvas ){
+                    scope._record[0].css({
+                        "zIndex":"-99"
+                    })
+                }else{
+                    scope._record[0].hide()
+                }
 
             }
             else{
 
                 scope._closeMenu()
-                scope._record[0].show()
+                if( scope.isCanvas ){
+                    scope._record[0].css({
+                        "zIndex":"4"
+                    })
+                }else{
+                    scope._record[0].show()
+                }
+            
 
             }
 
