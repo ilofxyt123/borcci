@@ -21,7 +21,7 @@
   //镜头切换
   var JTs = [
     function(){
-      v3dApp.tweenCamera("PhysCamera1", "PhysCamera1.Target", 1);
+      v3dApp.tweenCamera("PhysCamera7", "PhysCamera7.Target", 1);
     },
     function(){
       v3dApp.tweenCamera("PhysCamera002", "PhysCamera002.Target", 1);
@@ -38,33 +38,33 @@
   var LIGHTs = {
     0:[
       function(){
-        v3dApp.assignMat("GZ", "GZ_gtz_off_tx");
-        v3dApp.assignMat("HXD", "HXD_off");
+        v3dApp.assignMat("GuiZi", "GZ_gtz_gd");
+        v3dApp.assignMat("HXD", "HXDG");
       },//关
       function(){
-        v3dApp.assignMat("GZ", "GZ_gtz_on_tx");
-        v3dApp.assignMat("HXD", "HXD_on");
+        v3dApp.assignMat("GuiZi", "GZ_gtz_kd");
+        v3dApp.assignMat("HXD", "HXDK");
       },//开
     ],
     1:[
       function(){
-        v3dApp.assignMat("GZ", "GZ_szb_off_tx");
-        v3dApp.assignMat("HXD", "HXD_off");
+        v3dApp.assignMat("GuiZi", "GZ_szb_gd");
+        v3dApp.assignMat("HXD", "HXDG");
 
       },//关
       function(){
-        v3dApp.assignMat("GZ", "GZ_szb_on_tx");
-        v3dApp.assignMat("HXD", "HXD_on");
+        v3dApp.assignMat("GuiZi", "GZ_szb_kd");
+        v3dApp.assignMat("HXD", "HXDK");
       },//开
     ],
     2:[
       function(){
-        v3dApp.assignMat("GZ", "GZ_ych_off_tx");
-        v3dApp.assignMat("HXD", "HXD_off");
+        v3dApp.assignMat("GuiZi", "GZ_ych_gd");
+        v3dApp.assignMat("HXD", "HXDG");
       },//关
       function(){
-        v3dApp.assignMat("GZ", "GZ_ych_on_tx");
-        v3dApp.assignMat("HXD", "HXD_on");
+        v3dApp.assignMat("GuiZi", "GZ_ych_kd");
+        v3dApp.assignMat("HXD", "HXDK");
       },//开
     ],
   }
@@ -115,21 +115,22 @@
   var currentMatIndex = 0
   //材质切换
   $buttonMat1.on("touchend",function(){
-    v3dApp.assignMat("GZ", "GZ_gtz_off_tx");
-    v3dApp.assignMat("HG", "HG_nyj");
-    v3dApp.assignMat("SG", "SG_nyj");
+    v3dApp.assignMat("GuiZi", "GZ_gtz_gd");
+    v3dApp.assignMat("HengGui", "HG_nyj");
+    v3dApp.assignMat("ShuGui", "SG_nyj");
     currentMatIndex = 0
   })
   $buttonMat2.on("touchend",function(){
-    v3dApp.assignMat("GZ", "GZ_szb_off_tx");
-    v3dApp.assignMat("HG", "HG_yyh");
-    v3dApp.assignMat("SG", "SG_yyh");
+    v3dApp.assignMat("GuiZi", "GZ_szb_gd");
+    v3dApp.assignMat("HengGui", "HG_yyh");
+    v3dApp.assignMat("ShuGui", "SG_yyh");
     currentMatIndex = 1
   })
   $buttonMat3.on("touchend",function(){
-    v3dApp.assignMat("GZ", "GZ_ych_off_tx");
-    v3dApp.assignMat("HG", "HG_bsh");
-    v3dApp.assignMat("SG", "SG_bsh");
+    v3dApp.assignMat("GuiZi", "GZ_ych_gd");
+    v3dApp.assignMat("HengGui", "HG_bsh");
+    v3dApp.assignMat("ShuGui", "SG_bsh");
+
     currentMatIndex = 2
 
   })
@@ -188,6 +189,7 @@
   }
   function openLight(){
       lightStatus = 1//开
+      v3dApp.tweenCamera("PhysCamera005", "PhysCamera005.Target", 1);
       $(".button1 .normal").hide()
       $(".button1 .active").show()
       $(".txt_group img").hide()
@@ -195,6 +197,7 @@
   }
   function openVoice(){
     voiceStatus = 1//开
+      v3dApp.tweenCamera("PhysCamera006", "PhysCamera006.Target", 1);
       $(".button2 .normal").hide()
       $(".button2 .active").show()
       $(".txt_group img").hide()

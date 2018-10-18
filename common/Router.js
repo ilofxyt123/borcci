@@ -14,6 +14,7 @@ function Router(config){
     this.$page_canvas = $("#container")
     this.$pageMenu = $("#pageMenu")//菜单页面jq
     this.$pageSecond = $("#pageSecond")//时光印象二级导航jq
+    this.$pageSecond2 = $("#pageSecond2")//忆江南二级导航jq
 
     this.$menu1 = $("#menu1")
     this.$menu2 = $("#menu2")
@@ -21,7 +22,9 @@ function Router(config){
     this.$menu4 = $("#menu4")
 
     this.$small = $("#small")
+    this.$yjn_small = $("#yjn_small")
     this.$big= $("#big")
+    this.$yjn_big= $("#yjn_big")
 
     this.isCanvas = options.isCanvas
 
@@ -58,6 +61,12 @@ Router.prototype = {
         this._record[0] = this.$pageSecond
 
     },
+    openPageSecond2 : function(){
+
+        this.$pageSecond2.show()
+        this._record[0] = this.$pageSecond2
+
+    },
 
     to : function( index ){
 
@@ -72,7 +81,10 @@ Router.prototype = {
                 scope.$logo.hide()
                 break;
             case 2:
-                window.location.href = ""
+                scope.closePage1()
+                scope._closeMenu()
+                scope.openPageSecond2()
+                scope.$logo.hide()
                 break;
             case 3:
                 window.location.href = ""
@@ -185,6 +197,18 @@ Router.prototype = {
         this.$big.on("touchend",function(){
 
             window.location.href = '../sgyx_big/index.html'
+
+        })
+
+        this.$yjn_small.on("touchend",function(){
+
+            window.location.href = '../yjn_small/index.html'
+
+        })
+
+        this.$yjn_big.on("touchend",function(){
+
+            window.location.href = '../yjn_big/index.html'
 
         })
 

@@ -82,13 +82,13 @@ PL.execInitPuzzles = function() {
         setTimeout(function(){
             $page_loading.hide()
         },800)
-       
-        
+
+
     };
 
     var $percent = $("#percent")
     _initGlob.output.initOptions.preloaderProgressCb = function( percent ){
-        
+
         percent = Math.floor( percent ) - 1
         $percent.html( percent + "%" )
 
@@ -336,26 +336,6 @@ function swizzleVec3(vec) {
 
 
 
-        // assignMaterial block
-        function assignMat(objNames, matName) {
-            objNames = retrieveObjectNames(objNames);
-            if (!objNames || !matName)
-                return;
-            var mat = v3d.SceneUtils.getMaterialByName(appInstance, matName);
-            if (!mat)
-                return;
-            for (var i = 0; i < objNames.length; i++) {
-                var objName = objNames[i];
-                if (!objName)
-                    continue;
-                var obj = getObjectByName(objName);
-                if (obj)
-                    obj.material = mat;
-            }
-        }
-
-
-
     // utility function used by the whenClicked, whenHovered and whenDraggedOver blocks
     function initObjectPicking(callback, eventType, mouseDownUseTouchStart) {
 
@@ -467,6 +447,26 @@ function swizzleVec3(vec) {
 
 
 
+        // assignMaterial block
+        function assignMat(objNames, matName) {
+            objNames = retrieveObjectNames(objNames);
+            if (!objNames || !matName)
+                return;
+            var mat = v3d.SceneUtils.getMaterialByName(appInstance, matName);
+            if (!mat)
+                return;
+            for (var i = 0; i < objNames.length; i++) {
+                var objName = objNames[i];
+                if (!objName)
+                    continue;
+                var obj = getObjectByName(objName);
+                if (obj)
+                    obj.material = mat;
+            }
+        }
+
+
+
         // tweenCamera block
         function tweenCamera(posObjName, targetObjName, duration) {
             if (!targetObjName)
@@ -487,6 +487,7 @@ function swizzleVec3(vec) {
             }
         }
 
+operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
 
 
 // operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
@@ -555,6 +556,7 @@ registerOnClick("JT6", function() {
 
 v3dApp.tweenCamera = tweenCamera
 v3dApp.assignMat = assignMat
+v3dApp.operateAnimation = operateAnimation
 
 }
 if (window.v3dApp) {

@@ -1,0 +1,140 @@
+.page_player{}
+.player{}
+
+.switch_box{
+    position: absolute;
+    top: 9.2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.switch_box .left{
+    width: 0.44rem;
+    height: 0.44rem;
+    margin-right: 0.125rem;
+}
+.switch_box .right{
+    width: 0.44rem;
+    height: 0.44rem;
+    margin-left: 0.125rem;
+}
+.switch_box .point{
+    width: 0.3rem;
+    height: 0.3rem;
+    position: relative;
+    margin: 0 0.125rem;
+}
+.point .outter{
+    width: 0.3rem;
+    height: 0.3rem;
+}
+.point .inner{display:none;position: absolute;width: 0.18rem;height: 0.18rem;top: 0.06rem;left: 0.06rem;}
+
+.panel_box{width:100%;position: absolute;z-index: 1;}
+.panel_box .panel{ width:100%; }
+.panel_box .panel1{  }
+.panel_box .panel2{  }
+.panel_box .panel3{  }
+.panel_box .panel4{  }
+.panel .btn_group{
+    justify-content: center;
+    top: 7.5rem;
+    position: absolute;
+    width: 100%;
+}
+.btn_group .btn{
+    width: 1.04rem;
+    height: 1.3rem;
+    margin: 0 0.45rem;
+}
+.panel_box .panel2{}
+.panel2 .txt{
+    width: 5.06rem;
+    position: absolute;
+    top: 7.7rem;
+    left: 50%;
+    margin-left: -2.53rem;
+}
+.panel_box .panel3{}
+.panel3 .button1{
+    position: absolute;
+    top: 7.1rem;
+    left: 1rem;
+}
+.button1 img{
+    width: 0.74rem;
+    height: 0.74rem;
+}
+.panel3 .button2{
+    position: absolute;
+    top: 7.1rem;
+    right: 1rem;
+}
+.button2 img{
+    width: 0.74rem;
+    height: 0.74rem;
+}
+.panel3 .txt_group{
+    position: absolute;
+    top: 8.2rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.txt_group .txt_init{
+    width: 3.4rem;
+    height: 0.5rem;
+}
+.txt_group .txt_light{
+    width: 3.74rem;
+    height: 0.5rem;
+}
+.txt_group .txt_voice{
+    width: 5.11rem;
+    height: 0.5rem;
+}
+.panel_box .panel4{}
+.panel4 .poster{
+    width: 5.06rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -2.53rem;
+    top: 1.26rem;
+}
+.panel4 .title{
+    width: 1.8rem;
+    left: 50%;
+    margin-left: -0.9rem;
+    top: 6.76rem;
+    position: absolute;
+}
+.panel4 .txt{
+    width: 5.08rem;
+    left: 50%;
+    margin-left: -2.54rem;
+    position: absolute;
+    top: 7.7rem;
+}
+.panel5{}
+.panel5 .title{
+    width: 2.24rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.12rem;
+    top: 1.26rem;
+}
+.panel5 .pic2{
+    width: 5.72rem;
+    position: absolute;
+    top: 2.6rem;
+    left: 50%;
+    margin-left: -2.86rem;
+}
+.panel5 .pic3{
+    width: 4.26rem;
+    top: 6.8rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -2.13rem;
+}
