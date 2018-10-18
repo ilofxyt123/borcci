@@ -175,8 +175,11 @@
       $(".txt_light").hide()
       $(".txt_init").show()
   }
+
+
   function closeVoice(){
     voiceStatus = 0//关buttonLight
+      v3dApp.operateAnimation("STOP", "YX", null, null, 'LoopOnce', 1, function() {});
       $(".button2 .normal").show()
       $(".button2 .active").hide()
       $(".txt_voice").hide()
@@ -185,6 +188,7 @@
   }
   function openLight(){
       lightStatus = 1//开
+      v3dApp.tweenCamera("PhysCamera005", "PhysCamera005.Target", 1);
       $(".button1 .normal").hide()
       $(".button1 .active").show()
       $(".txt_group img").hide()
@@ -192,14 +196,13 @@
   }
   function openVoice(){
     voiceStatus = 1//开
+      v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {});
+      v3dApp.tweenCamera("PhysCamera006", "PhysCamera006.Target", 1);
       $(".button2 .normal").hide()
       $(".button2 .active").show()
       $(".txt_group img").hide()
       $(".txt_voice").show()
       music.play()
   }
-
-
-
 
 }()

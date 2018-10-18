@@ -70,7 +70,7 @@
   }
   //切换按钮
   var s = new Switch(5,JTs)
-  
+
   s.callbacks = {
     1:function(){
 
@@ -189,7 +189,6 @@
   }
   function openLight(){
       lightStatus = 1//开
-      v3dApp.tweenCamera("PhysCamera005", "PhysCamera005.Target", 1);
       $(".button1 .normal").hide()
       $(".button1 .active").show()
       $(".txt_group img").hide()
@@ -197,7 +196,6 @@
   }
   function openVoice(){
     voiceStatus = 1//开
-      v3dApp.tweenCamera("PhysCamera006", "PhysCamera006.Target", 1);
       $(".button2 .normal").hide()
       $(".button2 .active").show()
       $(".txt_group img").hide()
