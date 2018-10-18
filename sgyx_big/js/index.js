@@ -40,7 +40,6 @@
       function(){
         v3dApp.assignMat("TZ", "TZ_nyj_off");
         v3dApp.assignMat("HXD", "HXD_off");
-
       },//关
       function(){
         v3dApp.assignMat("TZ", "TZ_nyj_on");
