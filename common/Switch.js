@@ -85,7 +85,7 @@ Switch.prototype = {
       //下一个
       this.$buttonNext.on("touchend",function(){
 
-        if( scope.currentPanel == this.number ){
+        if( scope.currentPanel == scope.number ){
 
           return
 
