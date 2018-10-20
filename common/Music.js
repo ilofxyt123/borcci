@@ -63,7 +63,7 @@ Music.prototype = {
         if( window['WeixinJSBridge'] ){
 
             //错过了JSBridge事件，需要调用其他接口播放音频
-            WeixinJSBridge.invoke("getNetworkType", {},() => {
+            WeixinJSBridge.invoke("getNetworkType", {},function(){
                 this.audio.play()
                 this.$button.addClass( this.buttonAnimateClass )
                 this.isPlay = true
@@ -72,11 +72,11 @@ Music.prototype = {
         }
         else{
 
-            var c = setInterval(() => {
+            var c = setInterval(function(){
 
                 if( window['WeixinJSBridge'] ){
 
-                    WeixinJSBridge.invoke("getNetworkType", {},() => {
+                    WeixinJSBridge.invoke("getNetworkType", {},function() {
                         this.audio.play()
                         this.$button.addClass( this.buttonAnimateClass )
                         this.isPlay = true
@@ -94,13 +94,13 @@ Music.prototype = {
     else{
 
         try{
-            PALifeOpen.getDeviceID(() => {
+            PALifeOpen.getDeviceID(function(){
 
                 this.audio.play()
                 this.$button.addClass( this.buttonAnimateClass )
                 this.isPlay = true
 
-            },( err ) => {
+            },function( err ) {
 
             })
         }
@@ -132,7 +132,7 @@ Music.prototype = {
 
     bindEvent : function(){
 
-    this.$button.on("touchend",() => {
+    this.$button.on("touchend",function() {
         if( this.isPlay ){
             this.pause()
         }
