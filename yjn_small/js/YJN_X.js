@@ -164,7 +164,7 @@ function runCode(app) {
     // add your code here, e.g. console.log('Hello, World!');
 
     app.controls.maxDistance = 2000
-    app.camera.position.z = 2000
+    // app.camera.position.z = 2000
     app.scene.background = null
 
 
