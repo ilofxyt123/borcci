@@ -76,12 +76,14 @@
 
         closeLight()
         closeVoice()
+        v3dApp.tweenCamera("PhysCamera1", "PhysCamera1.Target", 1);
 
     },
     2:function(){
 
         closeLight()
         closeVoice()
+        v3dApp.tweenCamera("PhysCamera002", "PhysCamera002.Target", 1);
 
     },
     3:function(){
@@ -115,21 +117,21 @@
   var currentMatIndex = 0
   //材质切换
   $buttonMat1.on("touchend",function(){
-    v3dApp.assignMat("GuiZi", "GZ_gtz_gd");
-    v3dApp.assignMat("HengGui", "HG_nyj");
-    v3dApp.assignMat("ShuGui", "SG_nyj");
+    v3dApp.assignMat("GZ", "GZ_gtz_off_tx");
+    v3dApp.assignMat("HG", "HG_nyj");
+    v3dApp.assignMat("SG", "SG_nyj");
     currentMatIndex = 0
   })
   $buttonMat2.on("touchend",function(){
-    v3dApp.assignMat("GuiZi", "GZ_szb_gd");
-    v3dApp.assignMat("HengGui", "HG_yyh");
-    v3dApp.assignMat("ShuGui", "SG_yyh");
+    v3dApp.assignMat("GZ", "GZ_szb_off_tx");
+    v3dApp.assignMat("HG", "HG_yyh");
+    v3dApp.assignMat("SG", "SG_yyh");
     currentMatIndex = 1
   })
   $buttonMat3.on("touchend",function(){
-    v3dApp.assignMat("GuiZi", "GZ_ych_gd");
-    v3dApp.assignMat("HengGui", "HG_bsh");
-    v3dApp.assignMat("ShuGui", "SG_bsh");
+    v3dApp.assignMat("GZ", "GZ_ych_off_tx");
+    v3dApp.assignMat("HG", "HG_bsh");
+    v3dApp.assignMat("SG", "SG_bsh");
 
     currentMatIndex = 2
 
@@ -197,6 +199,7 @@
   }
   function openVoice(){
     voiceStatus = 1//开
+      v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {});
       v3dApp.tweenCamera("PhysCamera006", "PhysCamera006.Target", 1);
       $(".button2 .normal").hide()
       $(".button2 .active").show()

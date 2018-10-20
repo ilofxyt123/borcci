@@ -99,7 +99,7 @@ window.addEventListener('load', function() {
                     object.matrixAutoUpdate = false
                 }
             })
-            setTimeout(() => {
+            setTimeout(function() {
                 var t = 0
                 var now = 0
                 var index = 0
@@ -175,8 +175,8 @@ window.addEventListener('load', function() {
     function runCode(app) {
         // add your code here, e.g. console.log('Hello, World!');
 
-        app.controls.maxDistance = 2000
-        app.camera.position.z = 2000
+        // app.controls.maxDistance = 2000
+        // app.camera.position.z = 2000
         app.scene.background = null
 
 
