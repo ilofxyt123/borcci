@@ -71,7 +71,7 @@ PL.execInitPuzzles = function() {
     _initGlob.output.initOptions.useBkgTransp = true;
     _initGlob.output.initOptions.preserveDrawBuf = false;
     _initGlob.output.initOptions.useCompAssets = true;
-    _initGlob.output.initOptions.useFullscreen = true;
+    _initGlob.output.initOptions.useFullscreen = false;
 
     //loading
     var $page_loading = $("#page_loading")
@@ -374,52 +374,167 @@ function swizzleVec3(vec) {
 
 
 
+        function getSceneByAction(action) {
+            var root = action.getRoot();
+            var scene = root.type == "Scene" ? root : null;
+            root.traverseAncestors(function(ancObj) {
+                if (ancObj.type == "Scene") {
+                    scene = ancObj;
+                }
+            });
+            return scene;
+        }
+
+
+
+        function getSceneAnimFrameRate(scene) {
+            if (scene && "v3d" in scene.userData && "animFrameRate" in scene.userData.v3d) {
+                return scene.userData.v3d.animFrameRate;
+            }
+            return 24;
+        }
+
+
+
+        // playAnimation, playAnimationExt and stopAnimation blocks
+        (function() {
+            appInstance.mixer.addEventListener("finished", function(e) {
+                var cb = _pGlob.animMixerCallbacks;
+                var found = [];
+                for (var i = 0; i < cb.length; i++) {
+                    if (cb[i][0] == e.action) {
+                        cb[i][0] = null; // desactivate
+                        found.push(cb[i][1]);
+                    }
+                }
+                for (var i = 0; i < found.length; i++) {
+                    found[i]();
+                }
+            });
+        })();
+
+
+
+        // playAnimation, playAnimationExt and stopAnimation blocks
+        function operateAnimation(operation, animations, from, to, loop, timeScale, callback) {
+            if (!animations) return;
+            // input can be either single obj or array of objects
+            if (typeof animations == "string") animations = [animations];
+            for (var i = 0; i < animations.length; i++) {
+                var animName = animations[i];
+                if (!animName) continue;
+                var action = v3d.SceneUtils.getAnimationActionByName(appInstance, animName);
+                if (!action) continue;
+                switch (operation) {
+                case "PLAY":
+                    if (!action.isRunning()) {
+                        action.reset();
+                        if (loop && (loop != "AUTO"))
+                            action.loop = v3d[loop];
+                        var scene = getSceneByAction(action);
+                        var frameRate = getSceneAnimFrameRate(scene);
+                        if (timeScale == 1) {
+                            action.timeScale = Math.abs(action.timeScale);
+                            action.time = from ? from/frameRate : 0;
+                            if (to)
+                                action.getClip().duration = to/frameRate;
+                        } else {
+                            action.timeScale = -Math.abs(action.timeScale);
+                            action.time = to ? to/frameRate : action.getClip().duration;
+                        }
+                        // action.time outside of the clip bounds can prevent the action from playing
+                        action.time = v3d.Math.clamp(action.time, 0, action.getClip().duration);
+                        action.paused = false;
+                        action.play();
+
+                        // push unique callbacks only
+                        var callbacks = _pGlob.animMixerCallbacks;
+                        var found = false;
+
+                        for (var j = 0; j < callbacks.length; j++)
+                            if (callbacks[j][0] == action && callbacks[j][1] == callback)
+                                found = true;
+
+                        if (!found)
+                            _pGlob.animMixerCallbacks.push([action, callback]);
+                    }
+                    break;
+                case "STOP":
+                    action.stop();
+
+                    // remove callbacks
+                    var callbacks = _pGlob.animMixerCallbacks;
+                    for (var j = 0; j < callbacks.length; j++)
+                        if (callbacks[j][0] == action) {
+                            callbacks.splice(j, 1);
+                            j--
+                        }
+
+                    break;
+                case "PAUSE":
+                    action.paused = true;
+                    break;
+                case "RESUME":
+                    action.paused = false;
+                    break;
+                case "SET_FRAME":
+                    var frameRate = getSceneAnimFrameRate(scene);
+                    action.time = from ? from/frameRate : 0;
+                    action.play();
+                    action.paused = true;
+                    break;
+                }
+            }
+        }
+
+
+
 registerOnClick("HXD_k", function() {
-    assignMat("HXD", "HXDK");
+  assignMat("HXD", "HXD_on");
 }, function() {});
 
 registerOnClick("HXD_g", function() {
-    assignMat("HXD", "HXDG");
+  assignMat("HXD", "HXD_off");
 }, function() {});
 
 registerOnClick("QRGT_k", function() {
-  assignMat("GuiZi", "GZ_gtz_kd");
-  assignMat("ShuGui", "SG_nyj");
-  assignMat("HengGui", "HG_nyj");
+  assignMat("GZ", "GZ_gtz_on_tx");
+  assignMat("HG", "HG_nyj");
+  assignMat("SG", "SG_nyj");
 }, function() {});
 
 registerOnClick("QRGT_g", function() {
-  assignMat("GuiZi", "GZ_gtz_gd");
-  assignMat("ShuGui", "SG_nyj");
-  assignMat("HengGui", "HG_nyj");
+  assignMat("GZ", "GZ_gtz_off_tx");
+  assignMat("HG", "HG_nyj");
+  assignMat("SG", "SG_nyj");
 }, function() {});
 
 registerOnClick("ZLYG_k", function() {
-  assignMat("GuiZi", "GZ_szb_kd");
-  assignMat("ShuGui", "SG_yyh");
-  assignMat("HengGui", "HG_yyh");
+  assignMat("GZ", "GZ_szb_on_tx");
+  assignMat("HG", "HG_yyh");
+  assignMat("SG", "SG_yyh");
 }, function() {});
 
 registerOnClick("ZLYG_g", function() {
-  assignMat("GuiZi", "GZ_szb_gd");
-  assignMat("ShuGui", "SG_yyh");
-  assignMat("ShuGui", "SG_yyh");
+  assignMat("GZ", "GZ_szb_off_tx");
+  assignMat("HG", "HG_yyh");
+  assignMat("SG", "SG_yyh");
 }, function() {});
 
 registerOnClick("KYXG_k", function() {
-  assignMat("GuiZi", "GZ_ych_kd");
-  assignMat("ShuGui", "SG_bsh");
-  assignMat("ShuGui", "SG_bsh");
+  assignMat("GZ", "GZ_ych_on_tx");
+  assignMat("HG", "HG_bsh");
+  assignMat("SG", "SG_bsh");
 }, function() {});
 
 registerOnClick("KYXG_g", function() {
-  assignMat("GuiZi", "GZ_ych_gd");
-  assignMat("ShuGui", "SG_bsh");
-  assignMat("ShuGui", "SG_bsh");
+  assignMat("GZ", "GZ_ych_off_tx");
+  assignMat("HG", "HG_bsh");
+  assignMat("HG", "HG_bsh");
 }, function() {});
 
 registerOnClick("JT1", function() {
-    tweenCamera("PhysCamera7", "PhysCamera7.Target", 1);
+  tweenCamera("PhysCamera1", "PhysCamera1.Target", 1);
 }, function() {});
 
 registerOnClick("JT2", function() {
@@ -442,10 +557,26 @@ registerOnClick("JT6", function() {
   tweenCamera("PhysCamera006", "PhysCamera006.Target", 1);
 }, function() {});
 
-v3dApp.tweenCamera = tweenCamera
-v3dApp.assignMat = assignMat
+operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
+
+operateAnimation("STOP", "chouti", null, null, 'AUTO', 1, function() {});
+
+registerOnClick("DKYX", function() {
+  operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {});
+}, function() {});
+
+registerOnClick("DKCT", function() {
+  operateAnimation("PLAY", "chouti", null, null, 'LoopOnce', 1, function() {});
+}, function() {});
+
+    v3dApp.tweenCamera = tweenCamera
+    v3dApp.assignMat = assignMat
+    v3dApp.operateAnimation = operateAnimation
 
 }
+
+
+
 if (window.v3dApp) {
     // backwards compatibility for old player projects
     PL.legacyMode = true;

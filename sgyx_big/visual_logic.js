@@ -71,7 +71,7 @@ PL.execInitPuzzles = function() {
     _initGlob.output.initOptions.useBkgTransp = true;
     _initGlob.output.initOptions.preserveDrawBuf = false;
     _initGlob.output.initOptions.useCompAssets = true;
-    _initGlob.output.initOptions.useFullscreen = true;
+    _initGlob.output.initOptions.useFullscreen = false;
 
     //loading
     var $page_loading = $("#page_loading")
@@ -487,10 +487,25 @@ function swizzleVec3(vec) {
             }
         }
 
+
+
 operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
+operateAnimation("STOP", "GuiMen_G", null, null, 'AUTO', 1, function() {});
+operateAnimation("STOP", "CT", null, null, 'AUTO', 1, function() {});
+operateAnimation("STOP", "LaSuan", null, null, 'AUTO', 1, function() {});
 
+registerOnClick("DKYX", function() {
+  operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {});
+}, function() {});
 
-// operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
+registerOnClick("DKCT", function() {
+  operateAnimation("PLAY", "CT", null, null, 'LoopOnce', 1, function() {});
+}, function() {});
+
+registerOnClick("DKGZ", function() {
+  operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+  operateAnimation("PLAY", "LaSuan", null, null, 'LoopOnce', 1, function() {});
+}, function() {});
 
 registerOnClick("HXD_k", function() {
   assignMat("HXD", "HXD_on");
@@ -503,31 +518,37 @@ registerOnClick("HXD_g", function() {
 registerOnClick("QRGT_k", function() {
   assignMat("TZ", "TZ_nyj_on");
   assignMat("GZ", "GZ_gtz_tex");
+  assignMat("GuiMen", "GM_gtz");
 }, function() {});
 
 registerOnClick("QRGT_g", function() {
   assignMat("TZ", "TZ_nyj_off");
   assignMat("GZ", "GZ_gtz_tex");
+  assignMat("GuiMen", "GM_gtz");
 }, function() {});
 
 registerOnClick("ZLYG_k", function() {
   assignMat("TZ", "TZ_yyh_on");
   assignMat("GZ", "GZ_szb_tex");
+  assignMat("GuiMen", "GM_szb");
 }, function() {});
 
 registerOnClick("ZLYG_g", function() {
   assignMat("TZ", "TZ_yyh_off");
   assignMat("GZ", "GZ_szb_tex");
+  assignMat("GuiMen", "GM_szb");
 }, function() {});
 
 registerOnClick("KYXG_k", function() {
   assignMat("TZ", "TZ_bsh_on");
   assignMat("GZ", "GZ_ych_tex");
+  assignMat("GuiMen", "GM_ych");
 }, function() {});
 
 registerOnClick("KYXG_g", function() {
   assignMat("TZ", "TZ_bsh_off");
   assignMat("GZ", "GZ_ych_tex");
+  assignMat("GuiMen", "GM_ych");
 }, function() {});
 
 registerOnClick("JT1", function() {

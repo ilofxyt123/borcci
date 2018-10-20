@@ -28,9 +28,6 @@ function Router(config){
 
     this.isCanvas = options.isCanvas
 
-
-
-
     this._record = [ this.$page1 ]//记录当前页面,默认在首页
 
     this.bindEvent()

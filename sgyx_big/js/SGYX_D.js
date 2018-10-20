@@ -72,7 +72,7 @@ function loadScene(sceneURL, initOptions) {
 
     if (initOptions.useBkgTransp) {
         app.clearBkgOnLoad = true;
-        app.renderer.setClearColor(0x000000, 0);
+        // app.renderer.setClearColor(0x000000, 0);
 
     }
     app.renderer.setPixelRatio(window.devicePixelRatio)
@@ -164,8 +164,8 @@ function prepareExternalInterface(app) {
 function runCode(app) {
     // add your code here, e.g. console.log('Hello, World!');
 
-    app.controls.maxDistance = 2000
-    app.camera.position.z = 2000
+    // app.controls.maxDistance = 2000
+    // app.camera.position.z = 2000
     app.scene.background = null
 
 
