@@ -33,7 +33,6 @@ Switch.prototype = {
     this.$allPanel.hide()
     $("#panel" + index ).show()
 
-
     if(this.callbacks.hasOwnProperty( index )){
 
         this.callbacks[ index ]()
