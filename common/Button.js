@@ -12,6 +12,7 @@
         this.isActive = false//状态
 
         this.onTouch = options.onTouch
+        this.onClose = options.onClose
 
         this.bindEvent()
         this.init()
@@ -42,7 +43,11 @@
 
                 if( instance.isActive ){
 
-                    return
+                    instance.close()
+                    instance.onClose()
+
+                    Button.NOWGROUP = ''
+                    Button.ActiveIndex = ''
 
                 }
 

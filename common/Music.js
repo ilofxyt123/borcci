@@ -26,95 +26,96 @@ Music.prototype = {
     //微信端初始化
     init : function(){
 
-    var scope = this
+        var scope = this
+        if( Music.isWeiXin ){
 
-    if( Music.isWeiXin ){
+            if( "WeixinJSBridgeReady" in window ){
 
-        if( "WeixinJSBridgeReady" in window ){
+                document.addEventListener("WeixinJSBridgeReady",function(){
 
-            document.addEventListener("WeixinJSBridgeReady",function(){
+                    scope.audio.load()
+                    scope.haveInit = true
 
-                scope.audio.load()
-                scope.haveInit = true
+                },false)
 
-            },false)
+            }
+            else{
+
+
+
+            }
 
         }
+
         else{
 
-
+            //微信之外的环境
 
         }
 
-    }
-
-    else{
-
-        //微信之外的环境
-
-    }
-
-},
+    },
 
     play : function(){
 
-    if( Music.isWeiXin ){
+        var scope = this
 
-        if( window['WeixinJSBridge'] ){
+        if( Music.isWeiXin ){
 
-            //错过了JSBridge事件，需要调用其他接口播放音频
-            WeixinJSBridge.invoke("getNetworkType", {},function(){
-                this.audio.play()
-                this.$button.addClass( this.buttonAnimateClass )
-                this.isPlay = true
-            })
+            if( window['WeixinJSBridge'] ){
+
+                //错过了JSBridge事件，需要调用其他接口播放音频
+                WeixinJSBridge.invoke("getNetworkType", {},function(){
+                    scope.audio.play()
+                    scope.$button.addClass( scope.buttonAnimateClass )
+                    scope.isPlay = true
+                })
+
+            }
+            else{
+
+                var c = setInterval(function(){
+
+                    if( window['WeixinJSBridge'] ){
+
+                        WeixinJSBridge.invoke("getNetworkType", {},function() {
+                            scope.audio.play()
+                            scope.$button.addClass( scope.buttonAnimateClass )
+                            scope.isPlay = true
+                        })
+
+                        clearInterval( c )
+                    }
+
+                },50)
+
+            }
+
 
         }
         else{
 
-            var c = setInterval(function(){
+            try{
+                PALifeOpen.getDeviceID(function(){
 
-                if( window['WeixinJSBridge'] ){
+                    scope.audio.play()
+                    scope.$button.addClass( scope.buttonAnimateClass )
+                    scope.isPlay = true
 
-                    WeixinJSBridge.invoke("getNetworkType", {},function() {
-                        this.audio.play()
-                        this.$button.addClass( this.buttonAnimateClass )
-                        this.isPlay = true
-                    })
+                },function( err ) {
 
-                    clearInterval( c )
-                }
+                })
+            }
+            catch( e ){
 
-            },50)
+                scope.audio.play()
+                scope.$button.addClass( scope.buttonAnimateClass )
+                scope.isPlay = true
 
-        }
-
-
-    }
-    else{
-
-        try{
-            PALifeOpen.getDeviceID(function(){
-
-                this.audio.play()
-                this.$button.addClass( this.buttonAnimateClass )
-                this.isPlay = true
-
-            },function( err ) {
-
-            })
-        }
-        catch( e ){
-
-            this.audio.play()
-            this.$button.addClass( this.buttonAnimateClass )
-            this.isPlay = true
+            }
 
         }
 
-    }
-
-},
+    },
     replay : function(){
 
         this.audio.currentTime = 0
@@ -124,33 +125,32 @@ Music.prototype = {
 
     pause : function(){
 
-    this.audio.pause()
-    this.$button.removeClass( this.buttonAnimateClass )
-    this.isPlay = false
+        this.audio.pause()
+        this.$button.removeClass( this.buttonAnimateClass )
+        this.isPlay = false
 
-},
+    },
 
     bindEvent : function(){
 
-    this.$button.on("touchend",function() {
-        if( this.isPlay ){
-            this.pause()
-        }
-        else{
-            this.play()
-        }
+        this.$button.on("touchend",function() {
 
-    })
+            if( this.isPlay ){
+                this.pause()
+            }
+            else{
+                this.play()
+            }
 
-}
+        })
+
+    }
 
 }
 Music.isWeiXin = (function(){
 
     var ua = navigator.userAgent
-    console.log(ua);
     var result = ua.match(/MicroMessenger/i)
-    console.log( result )
     return result
 
 })()
