@@ -49,7 +49,7 @@
 
     </div>
 
-    <!--二级导航__大小户型-->
+     <!--二级导航__时光印象大小户型-->
     <div class="container page pageSecond z2" id="pageSecond" style="display:none;">
         <img src="../assets/home/small.png" alt="" class="pic1" id="small">
         <img src="../assets/home/big.png" alt="" class="pic2" id="big">
@@ -104,6 +104,10 @@
                 <img src="../assets/point.png" alt="" class="outter">
                 <img src="../assets/point_active.png" alt="" class="inner">
             </div>
+            <div class="point" id="point6" data-index="6">
+                <img src="../assets/point.png" alt="" class="outter">
+                <img src="../assets/point_active.png" alt="" class="inner">
+            </div>
             
             <img src="../assets/arrow_r.png" alt="" class="right" id="next">
         </div>
@@ -121,24 +125,46 @@
             <div class="panel panel2" id="panel2" style="display:none;">
                 <img src="../assets/sgyx_big/swiper2_txt.png" alt="" class="txt">
             </div>
+
             <!--操作体验-->
             <div class="panel panel3" id="panel3" style="display:none;">
-                <div class="button1" id="buttonLight">
-                    <img src="../assets/sgyx_big/swiper3_light.png" alt="" class="normal">
-                    <img src="../assets/sgyx_big/swiper3_light_active.png" alt="" class="active" style="display:none;">
-                </div>
-                <div class="button2" id="buttonVoice">
-                    <img src="../assets/sgyx_big/swiper3_voice.png" alt="" class="normal">
-                    <img src="../assets/sgyx_big/swiper3_voice_active.png" alt="" class="active" style="display:none;">
+                <div class="button-group">
+                    <div class="button button1" id="panel3_btn1">
+                        <img src="../assets/sgyx_big/swiper3_btn1.png" alt="" class="normal">
+                        <img src="../assets/sgyx_big/swiper3_btn1_active.png" alt="" class="active" style="display:none;">
+                    </div>
+
+                    <div class="button button2" id="panel3_btn2">
+                        <img src="../assets/sgyx_big/swiper3_btn3.png" alt="" class="normal">
+                        <img src="../assets/sgyx_big/swiper3_btn3_active.png" alt="" class="active" style="display:none;">
+                    </div>
                 </div>
                 <div class="txt_group">
-                    <img src="../assets/sgyx_big/swiper3_init_txt.png" alt="" class="txt_init">
-                    <img src="../assets/sgyx_big/swiper3_light_txt.png" alt="" class="txt_light" style="display:none;">
-                    <img src="../assets/sgyx_big/swiper3_voice_txt.png" alt="" class="txt_voice" style="display:none;">
+                    <img src="../assets/sgyx_big/swiper3_light_txt.png" alt="" class="panel3_txt1" id="panel3_txt1" style="display:none;">
+                    <img src="../assets/sgyx_big/swiper3_voice_txt.png" alt="" class="panel3_txt2" id="panel3_txt2" style="display:none;">
+                </div>
+            </div>
+
+            <!--操作体验2-->
+            <div class="panel panel4" id="panel4" style="display:none;">
+                <div class="button-group">
+                    <div class="button button1" id="panel4_btn1">
+                        <img src="../assets/sgyx_big/panel4_btn1.png" alt="" class="normal">
+                        <img src="../assets/sgyx_big/panel4_btn1_active.png" alt="" class="active" style="display:none;">
+                    </div>
+
+                    <div class="button button2" id="panel4_btn2">
+                        <img src="../assets/sgyx_big/panel4_btn2.png" alt="" class="normal">
+                        <img src="../assets/sgyx_big/panel4_btn2_active.png" alt="" class="active" style="display:none;">
+                    </div>
+                </div>
+                <div class="txt_group">
+                    <img src="../assets/sgyx_big/panel4_txt1.png" alt="" class="panel4_txt1" id="panel4_txt1" style="display:none;">
+                    <img src="../assets/sgyx_big/panel4_txt2.png" alt="" class="panel4_txt2" id="panel4_txt2" style="display:none;">
                 </div>
             </div>
             <!--环保材质-->
-            <div class="panel panel4" id="panel4" style="display:none;">
+            <div class="panel panel5" id="panel5" style="display:none;">
 
                 <img src="../assets/sgyx_big/swiper4_poster.png" alt="" class="poster">
                 <img src="../assets/sgyx_big/swiper4_title.png" alt="" class="title">
@@ -147,7 +173,7 @@
             </div>
 
             <!--联系我们-->
-            <div class="panel panel5" id="panel5" style="display:none;">
+            <div class="panel panel6" id="panel6" style="display:none;">
 
                 <img src="../assets/sgyx_big/contact_title.png" alt="" class="title">
                 <img src="../assets/sgyx_big/center.png" alt="" class="pic2">
@@ -161,18 +187,19 @@
 </div>
 
 <script src="../lib/v3d.js"></script>
-<script src="./js/SGYX_D.js?v1"></script>
+<script src="./js/SGYX_D.min.js?v1"></script>
 <!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
 <script src="../lib/jquery.min.js"></script>
 
-<script src="../common/Music.js"></script>
-<script src="../common/Router.js"></script>
-<script src="../common/Switch.js"></script>
+<script src="../common/Music.min.js"></script>
+<script src="../common/Router.min.js"></script>
+<script src="../common/Switch.min.js"></script>
+<script src="../common/Button.min.js"></script>
 <audio id="voice" src="../assets/music/voice.mp3" loop="true"></audio>
 
 <script>
     var js;
-    js = '<' + 'script ' + 'src=' + "js/index.js?v" + Math.random() + '>' + '</' + 'script' + '>'
+    js = '<' + 'script ' + 'src=' + "js/index.min.js?v" + Math.random() + '>' + '</' + 'script' + '>'
     document.write(js)
 </script>
 </body>
