@@ -147,6 +147,12 @@
 
           openLight()
           closeVoice()
+          closeDrawer()
+
+        },
+        onClose:function(){
+
+            closeLight()
 
         },
 
@@ -156,17 +162,21 @@
     var button2 = new Button({
 
         buttonID:'panel3_btn2',
-        txtID:'s',
-        // txtID:'panel3_txt2',
+        // txtID:'s',
+        txtID:'panel3_txt2',
         group:'panel3',
         onTouch:function(){
 
           closeVoice()
           closeLight()
-          v3dApp.operateAnimation("PLAY", "chouti", null, null, 'LoopOnce', 1, function() {});
-          v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
+          openDrawer()
 
         },
+        onClose : function(){
+
+            closeDrawer()
+
+        }
 
     })
 
@@ -180,6 +190,12 @@
 
             openVoice()
             closeLight()
+            closeDrawer()
+
+        },
+        onClose : function(){
+
+            closeVoice()
 
         },
 
@@ -190,15 +206,32 @@
     LIGHTs[ currentMatIndex ][0]()
 
   }
+
+  function closeDrawer(){
+
+      v3dApp.operateAnimation("PLAY", "chouti", null, null, 'LoopOnce', 1, function() {});
+      v3dApp.operateAnimation("STOP", "chouti", null, null, 'LoopOnce', 1, function() {});
+
+  }
   function closeVoice(){
 
+      v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {})
+      v3dApp.operateAnimation("STOP", "YX", null, null, 'LoopOnce', 1, function() {})
       music.pause()
 
   }
+
   function openLight(){
 
       v3dApp.tweenCamera("PhysCamera005", "PhysCamera005.Target", 1);
       LIGHTs[ currentMatIndex ][1]()
+
+  }
+
+  function openDrawer(){
+
+      v3dApp.operateAnimation("PLAY", "chouti", null, null, 'LoopOnce', 1, function() {});
+      v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
 
   }
   function openVoice(){
