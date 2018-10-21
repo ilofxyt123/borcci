@@ -1,5 +1,5 @@
 //菜单按钮
-function Switch( number, JTs ){
+function Switch( number, JTs, hidePanel ){
 
   this.currentIndex = 0//index
   this.currentPanel = this.currentIndex + 1//面板,默认在第一页
@@ -12,6 +12,8 @@ function Switch( number, JTs ){
   this.number = number ? number : this.$allInner.length
   this.JTs = JTs
   this.callbacks = {}//镜头回调
+    hidePanel = hidePanel ? hidePanel : [4,5]
+    this.hidePanel = hidePanel//需要隐藏canvas的页面
 
   this.bindEvent()
 
@@ -38,9 +40,19 @@ Switch.prototype = {
         this.callbacks[ index ]()
 
     }
+    var needShow = true//需要显示
 
+      for( var i = 0, il = this.hidePanel.length; i < il; i ++ ){
 
-        if( index !=4 && index != 5 ){
+            if( this.hidePanel[ i ] == index ){
+
+                needShow = false
+
+            }
+
+      }
+
+        if( needShow ){
 
             $("canvas").css({
                 'opacity':1,
@@ -85,7 +97,7 @@ Switch.prototype = {
       //下一个
       this.$buttonNext.on("touchend",function(){
 
-        if( scope.currentPanel == this.number ){
+        if( scope.currentPanel == scope.number ){
 
           return
 

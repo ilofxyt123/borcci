@@ -1,13 +1,11 @@
-~function(){
+// ~function(){
 
   //材质按钮
   var $buttonMat1 = $("#btn1")
   var $buttonMat2 = $("#btn2")
   var $buttonMat3 = $("#btn3")
 
-  //灯光按钮
-  var $buttonLight = $("#buttonLight")
-  var $buttonVoice = $("#buttonVoice")
+
 
     //菜单按钮
   var router = new Router({
@@ -68,44 +66,56 @@
     ],
   }
   //切换按钮
-  var s = new Switch(5,JTs)
+  var s = new Switch(6,JTs,[5,6])
 
   s.callbacks = {
     1:function(){
 
         closeLight()
         closeVoice()
+        v3dApp.tweenCamera("PhysCamera007", "PhysCamera007.Target", 1);
 
     },
     2:function(){
 
         closeLight()
         closeVoice()
+        v3dApp.tweenCamera("PhysCamera002", "PhysCamera002.Target", 1);
 
     },
     3:function(){
 
+        v3dApp.tweenCamera("PhysCamera005", "PhysCamera005.Target", 1);
         closeLight()
         closeVoice()
 
     },
     4:function(){
 
-      $("canvas").css({
-        'opacity':0
-      })
-
+        v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
         closeLight()
         closeVoice()
+
     },
     5:function(){
 
-      $("canvas").css({
-        'opacity':0
-      })
+        $("canvas").css({
+            'opacity':0
+        })
 
         closeLight()
         closeVoice()
+
+    },
+    6:function(){
+
+        $("canvas").css({
+            'opacity':0
+        })
+
+        closeLight()
+        closeVoice()
+
     },
 
   }
@@ -116,92 +126,113 @@
   $buttonMat1.on("touchend",function(){
     v3dApp.assignMat("GZ", "GZ_gtz_tex");
     v3dApp.assignMat("TZ", "TZ_nyj_off");
+      v3dApp.assignMat("GuiMen", "GM_gtz");
     currentMatIndex = 0
   })
   $buttonMat2.on("touchend",function(){
     v3dApp.assignMat("GZ", "GZ_szb_tex");
     v3dApp.assignMat("TZ", "TZ_yyh_off");
+      v3dApp.assignMat("GuiMen", "GM_szb");
     currentMatIndex = 1
   })
   $buttonMat3.on("touchend",function(){
     v3dApp.assignMat("GZ", "GZ_ych_tex");
     v3dApp.assignMat("TZ", "TZ_bsh_off");
+      v3dApp.assignMat("GuiMen", "GM_ych");
     currentMatIndex = 2
 
   })
 
-  var lightStatus = 0//默认是关着的灯
-  var voiceStatus = 0//默认是关着的音响
-  $buttonLight.on("touchend",function(){
+    //灯光 镜头5
+    var button1 = new Button({
 
-    if( lightStatus == 0 ){
+        buttonID:'panel3_btn1',
+        txtID:'panel3_txt1',
+        group:'panel3',
+        onTouch:function(){
 
-      closeVoice()
-      openLight()
+            openLight()
+            closeVoice()
 
-    }
-    else{
+        },
 
-      closeLight()
+    })
 
-    }
+    //音响 镜头6
+    var button2 = new Button({
 
+        buttonID:'panel3_btn2',
+        txtID:'panel3_txt2',
+        group:'panel3',
+        onTouch:function(){
 
+            openVoice()
+            closeLight()
 
-    LIGHTs[ currentMatIndex ][ lightStatus ]()
+        },
+
+    })
+
+    //抽屉 镜头3
+    var button3 = new Button({
+
+        buttonID:'panel4_btn1',
+        txtID:'panel4_txt1',
+        group:'panel4',
+        onTouch:function(){
+
+          closeVoice()
+          closeLight()
+          v3dApp.operateAnimation("PLAY", "CT", null, null, 'LoopOnce', 1, function() {});
+        v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
+
+        },
 
   })
 
-  $buttonVoice.on("touchend",function(){
 
-    if( voiceStatus == 0 ){
 
-      closeLight()
-      openVoice()
+    //柜子 镜头4
+    var button4 = new Button({
 
-    }
-    else{
+        buttonID:'panel4_btn2',
+        txtID:'panel4_txt2',
+        group:'panel4',
+        onTouch:function(){
 
-      closeVoice()
+            closeVoice()
+            closeLight()
+            v3dApp.operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+            v3dApp.tweenCamera("PhysCamera004", "PhysCamera004.Target", 1);
 
-    }
-  })
+        },
+
+    })
 
   function closeLight(){
-    lightStatus = 0//关buttonLight
-      $(".button1 .normal").show()
-      $(".button1 .active").hide()
-      $(".txt_light").hide()
-      $(".txt_init").show()
+
+    LIGHTs[ currentMatIndex ][0]()
+
   }
-
-
   function closeVoice(){
-    voiceStatus = 0//关buttonLight
-      v3dApp.operateAnimation("STOP", "YX", null, null, 'LoopOnce', 1, function() {});
-      $(".button2 .normal").show()
-      $(".button2 .active").hide()
-      $(".txt_voice").hide()
-      $(".txt_init").show()
+
       music.pause()
   }
   function openLight(){
-      lightStatus = 1//开
+
       v3dApp.tweenCamera("PhysCamera005", "PhysCamera005.Target", 1);
-      $(".button1 .normal").hide()
-      $(".button1 .active").show()
-      $(".txt_group img").hide()
-      $(".txt_light").show()
+      LIGHTs[ currentMatIndex ][1]()
+
   }
   function openVoice(){
-    voiceStatus = 1//开
-      v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {});
-      v3dApp.tweenCamera("PhysCamera006", "PhysCamera006.Target", 1);
-      $(".button2 .normal").hide()
-      $(".button2 .active").show()
-      $(".txt_group img").hide()
-      $(".txt_voice").show()
+
       music.play()
+      v3dApp.tweenCamera("PhysCamera006", "PhysCamera006.Target", 1);
+      v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {})
+
   }
 
-}()
+
+
+
+// }()

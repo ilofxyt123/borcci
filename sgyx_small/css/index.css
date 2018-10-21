@@ -39,14 +39,15 @@
 .panel_box .panel4{  }
 .panel .btn_group{
     justify-content: center;
-    top: 7.5rem;
+    top: 6.3rem;
     position: absolute;
     width: 100%;
+    flex-wrap: wrap;
 }
 .btn_group .btn{
-    width: 1.04rem;
-    height: 1.3rem;
-    margin: 0 0.45rem;
+    width: 0.9rem;
+    height: 1.16rem;
+    margin: 0 0.45rem 0.15rem;
 }
 .panel_box .panel2{}
 .panel2 .txt{
@@ -57,43 +58,31 @@
     margin-left: -2.53rem;
 }
 .panel_box .panel3{}
-.panel3 .button1{
-    position: absolute;
-    top: 7.1rem;
-    left: 1rem;
-}
-.button1 img{
-    width: 0.74rem;
-    height: 0.74rem;
-}
-.panel3 .button2{
-    position: absolute;
-    top: 7.1rem;
-    right: 1rem;
-}
+
+
 .button2 img{
     width: 0.74rem;
     height: 0.74rem;
 }
 .panel3 .txt_group{
-    position: absolute;
-    top: 8.2rem;
-    display: flex;
-    width: 100%;
-    justify-content: center;
 }
-.txt_group .txt_init{
-    width: 3.4rem;
-    height: 0.5rem;
-}
-.txt_group .txt_light{
+
+.txt_group .panel3_txt1{
     width: 3.74rem;
     height: 0.5rem;
+    margin-left: -1.87rem;
 }
-.txt_group .txt_voice{
+.txt_group .panel3_txt2{
+    width: 5.11rem;
+    height: 0.2rem;
+    margin-left: -2.55rem;
+}
+.txt_group .panel3_txt3{
     width: 5.11rem;
     height: 0.5rem;
+    margin-left: -2.55rem;
 }
+.txt_group img{ position:absolute;top:8.2rem; left:50%; }
 .panel_box .panel4{}
 .panel4 .poster{
     width: 5.06rem;
@@ -138,3 +127,8 @@
     left: 50%;
     margin-left: -2.13rem;
 }
+.panel{} .button{}
+.button img{
+    width: 0.74rem;
+}
+.panel .button-group{ display:flex;justify-content:space-between;width:4.2rem;position:absolute;top:7.1rem;left:50%;margin-left:-2.1rem; }

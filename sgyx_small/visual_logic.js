@@ -534,7 +534,7 @@ registerOnClick("KYXG_g", function() {
 }, function() {});
 
 registerOnClick("JT1", function() {
-  tweenCamera("PhysCamera1", "PhysCamera1.Target", 1);
+  tweenCamera("PhysCamera007", "PhysCamera007.Target", 1);
 }, function() {});
 
 registerOnClick("JT2", function() {
