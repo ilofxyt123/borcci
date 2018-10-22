@@ -123,19 +123,19 @@
 
   var currentMatIndex = 0
   //材质切换
-  $buttonMat1.on("touchend",function(){
+  $buttonMat1.on("mouseup",function(){
     v3dApp.assignMat("GZ", "GZ_gtz_tex");
     v3dApp.assignMat("TZ", "TZ_nyj_off");
       v3dApp.assignMat("GuiMen", "GM_gtz");
     currentMatIndex = 0
   })
-  $buttonMat2.on("touchend",function(){
+  $buttonMat2.on("mouseup",function(){
     v3dApp.assignMat("GZ", "GZ_szb_tex");
     v3dApp.assignMat("TZ", "TZ_yyh_off");
       v3dApp.assignMat("GuiMen", "GM_szb");
     currentMatIndex = 1
   })
-  $buttonMat3.on("touchend",function(){
+  $buttonMat3.on("mouseup",function(){
     v3dApp.assignMat("GZ", "GZ_ych_tex");
     v3dApp.assignMat("TZ", "TZ_bsh_off");
       v3dApp.assignMat("GuiMen", "GM_ych");
@@ -152,7 +152,15 @@
         onTouch:function(){
 
             openLight()
+
             closeVoice()
+            closeDrawer()
+            closeCupboard()
+
+        },
+        onClose : function(){
+
+            closeLight()
 
         },
 
@@ -167,9 +175,18 @@
         onTouch:function(){
 
             openVoice()
+
             closeLight()
+            closeDrawer()
+            closeCupboard()
 
         },
+        onClose : function(){
+
+            closeVoice()
+
+        },
+
 
     })
 
@@ -181,14 +198,22 @@
         group:'panel4',
         onTouch:function(){
 
+            openDrawer()
+
+            closeCupboard()
           closeVoice()
           closeLight()
-          v3dApp.operateAnimation("PLAY", "CT", null, null, 'LoopOnce', 1, function() {});
-        v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
+
+
+        },
+        onClose : function(){
+
+            closeDrawer()
 
         },
 
-  })
+
+    })
 
 
 
@@ -200,12 +225,20 @@
         group:'panel4',
         onTouch:function(){
 
+            openCupboard()
+
+            closeDrawer()
             closeVoice()
             closeLight()
-            v3dApp.operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
-            v3dApp.tweenCamera("PhysCamera004", "PhysCamera004.Target", 1);
+
 
         },
+        onClose : function(){
+
+            closeCupboard()
+
+        },
+
 
     })
 
@@ -216,8 +249,22 @@
   }
   function closeVoice(){
 
+      v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {})
+      v3dApp.operateAnimation("STOP", "YX", null, null, 'LoopOnce', 1, function() {})
       music.pause()
   }
+    function closeDrawer(){
+
+        v3dApp.operateAnimation("PLAY", "CT", null, null, 'LoopOnce', 1, function() {});
+        v3dApp.operateAnimation("STOP", "CT", null, null, 'LoopOnce', 1, function() {});
+
+    }
+    function closeCupboard(){
+
+        v3dApp.operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+        v3dApp.operateAnimation("STOP", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+
+    }
   function openLight(){
 
       v3dApp.tweenCamera("PhysCamera005", "PhysCamera005.Target", 1);
@@ -231,6 +278,19 @@
       v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {})
 
   }
+function openDrawer(){
+
+    v3dApp.operateAnimation("PLAY", "CT", null, null, 'LoopOnce', 1, function() {});
+    v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
+
+}
+
+function openCupboard(){
+
+    v3dApp.operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+    v3dApp.tweenCamera("PhysCamera004", "PhysCamera004.Target", 1);
+
+}
 
 
 
