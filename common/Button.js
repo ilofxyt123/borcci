@@ -39,7 +39,7 @@
 
             var instance = this
 
-            this.$el.on("touchend",function( e ){
+            this.$el.on("mouseup",function( e ){
 
                 if( instance.isActive ){
 

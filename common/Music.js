@@ -133,7 +133,7 @@ Music.prototype = {
 
     bindEvent : function(){
 
-        this.$button.on("touchend",function() {
+        this.$button.on("mouseup",function() {
 
             if( this.isPlay ){
                 this.pause()

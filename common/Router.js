@@ -123,7 +123,7 @@ Router.prototype = {
         var scope = this
 
         //菜单按钮
-        this.$menu.on("touchend",function(){
+        this.$menu.on("mouseup",function(){
 
             if( scope._menuClose ){
 
@@ -156,14 +156,14 @@ Router.prototype = {
 
         //导航栏按钮
         //时光印象
-        this.$menu1.on("touchend",function(){
+        this.$menu1.on("mouseup",function(){
 
             scope.to( 1 )
 
         })
 
         //忆江南
-        this.$menu2.on("touchend",function(){
+        this.$menu2.on("mouseup",function(){
 
             scope.to( 2 )
 
@@ -171,7 +171,7 @@ Router.prototype = {
 
 
         //晚堂香
-        this.$menu3.on("touchend",function(){
+        this.$menu3.on("mouseup",function(){
 
             scope.to( 3 )
 
@@ -179,31 +179,31 @@ Router.prototype = {
 
 
         //中国禅
-        this.$menu4.on("touchend",function(){
+        this.$menu4.on("mouseup",function(){
 
             scope.to( 4 )
 
         })
 
-        this.$small.on("touchend",function(){
+        this.$small.on("mouseup",function(){
 
             window.location.href = '../sgyx_small/index.html'
 
         })
 
-        this.$big.on("touchend",function(){
+        this.$big.on("mouseup",function(){
 
             window.location.href = '../sgyx_big/index.html'
 
         })
 
-        this.$yjn_small.on("touchend",function(){
+        this.$yjn_small.on("mouseup",function(){
 
             window.location.href = '../yjn_small/index.html'
 
         })
 
-        this.$yjn_big.on("touchend",function(){
+        this.$yjn_big.on("mouseup",function(){
 
             window.location.href = '../yjn_big/index.html'
 

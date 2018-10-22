@@ -85,7 +85,7 @@ Switch.prototype = {
 
       var scope = this
 
-      this.$button.on("touchend",function( e ){
+      this.$button.on("mouseup",function( e ){
 
         var index = e.currentTarget.dataset['index']
 
@@ -95,7 +95,7 @@ Switch.prototype = {
       })
 
       //下一个
-      this.$buttonNext.on("touchend",function(){
+      this.$buttonNext.on("mouseup",function(){
 
         if( scope.currentPanel == scope.number ){
 
@@ -108,7 +108,7 @@ Switch.prototype = {
       })
 
       //上
-      this.$buttonPrev.on("touchend",function(){
+      this.$buttonPrev.on("mouseup",function(){
 
         if( scope.currentPanel == 1 ){
 
