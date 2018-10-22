@@ -281,3 +281,26 @@ top: 2.1rem;
     text-align: center;
     color: #eed9b5;
 }
+
+
+@-webkit-keyframes ani-rotate {
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    100% {
+        -webkit-transform:rotate(360deg);
+    }
+}
+@keyframes ani-rotate {
+    0%{
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
+
+.ani-rotate{
+    -webkit-animation: ani-rotate 3s linear 0s infinite forwards;
+    animation: ani-rotate 3s linear 0s infinite forwards;
+}
