@@ -38,32 +38,32 @@
   var LIGHTs = {
     0:[
       function(){
-        v3dApp.assignMat("GuiZi", "GZ_gtz_off_tx");
+        v3dApp.assignMat("GZ", "GZ_gtz_off_tx");
         v3dApp.assignMat("HXD", "HXD_off");
       },//关
       function(){
-        v3dApp.assignMat("GuiZi", "GZ_gtz_on_tx");
+        v3dApp.assignMat("GZ", "GZ_gtz_on_tx");
         v3dApp.assignMat("HXD", "HXD_on");
       },//开
     ],
     1:[
       function(){
-        v3dApp.assignMat("GuiZi", "GZ_szb_off_tx");
+        v3dApp.assignMat("GZ", "GZ_szb_off_tx");
         v3dApp.assignMat("HXD", "HXD_off");
 
       },//关
       function(){
-        v3dApp.assignMat("GuiZi", "GZ_szb_on_tx");
+        v3dApp.assignMat("GZ", "GZ_szb_on_tx");
         v3dApp.assignMat("HXD", "HXD_on");
       },//开
     ],
     2:[
       function(){
-        v3dApp.assignMat("GuiZi", "GZ_ych_off_tx");
+        v3dApp.assignMat("GZ", "GZ_ych_off_tx");
         v3dApp.assignMat("HXD", "HXD_off");
       },//关
       function(){
-        v3dApp.assignMat("GuiZi", "GZ_ych_on_tx");
+        v3dApp.assignMat("GZ", "GZ_ych_on_tx");
         v3dApp.assignMat("HXD", "HXD_on");
       },//开
     ],
@@ -116,19 +116,19 @@
 
   var currentMatIndex = 0
   //材质切换
-  $buttonMat1.on("touchend",function(){
+  $buttonMat1.on("mouseup",function(){
     v3dApp.assignMat("GZ", "GZ_gtz_off_tx");
     v3dApp.assignMat("HG", "HG_nyj");
     v3dApp.assignMat("SG", "SG_nyj");
     currentMatIndex = 0
   })
-  $buttonMat2.on("touchend",function(){
+  $buttonMat2.on("mouseup",function(){
     v3dApp.assignMat("GZ", "GZ_szb_off_tx");
     v3dApp.assignMat("HG", "HG_yyh");
     v3dApp.assignMat("SG", "SG_yyh");
     currentMatIndex = 1
   })
-  $buttonMat3.on("touchend",function(){
+  $buttonMat3.on("mouseup",function(){
     v3dApp.assignMat("GZ", "GZ_ych_off_tx");
     v3dApp.assignMat("HG", "HG_bsh");
     v3dApp.assignMat("SG", "SG_bsh");
