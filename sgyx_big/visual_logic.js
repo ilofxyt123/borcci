@@ -105,6 +105,8 @@ PL.init = function(appInstance, initOptions) {
         _pGlob.fadeAnnotations = initOptions.fadeAnnotations;
     }
 
+var guizi_animation, chouti_animation;
+
 
         function getSceneByAction(action) {
             var root = action.getRoot();
@@ -336,6 +338,24 @@ function swizzleVec3(vec) {
 
 
 
+        // show and hide blocks
+        function changeVis(objNames, bool) {
+            objNames = retrieveObjectNames(objNames);
+            if (!objNames)
+                return;
+            for (var i = 0; i < objNames.length; i++) {
+                var objName = objNames[i]
+                if (!objName)
+                    continue;
+                var obj = getObjectByName(objName);
+                if (!obj)
+                    continue;
+                obj.visible = bool;
+            }
+        }
+
+
+
     // utility function used by the whenClicked, whenHovered and whenDraggedOver blocks
     function initObjectPicking(callback, eventType, mouseDownUseTouchStart) {
 
@@ -494,17 +514,51 @@ operateAnimation("STOP", "GuiMen_G", null, null, 'AUTO', 1, function() {});
 operateAnimation("STOP", "CT", null, null, 'AUTO', 1, function() {});
 operateAnimation("STOP", "LaSuan", null, null, 'AUTO', 1, function() {});
 
+changeVis("Renwu", false);
+
+operateAnimation("STOP", ["biaoxian01", "biaoxian02", "biaoxian03", "biaoxian04", "biaoxian05", "biaoxian06", "jiantou01", "jiantou02", "jiantou03", "jiantou04", "jiantou05", "jiantou06", "shuzi01", "shuzi02", "shuzi03"], null, null, 'AUTO', 1, function() {});
+
+registerOnClick("RenJi", function() {
+  operateAnimation("PLAY", ["biaoxian01", "biaoxian02", "biaoxian03", "biaoxian04", "biaoxian05", "biaoxian06", "jiantou01", "jiantou02", "jiantou03", "jiantou04", "jiantou05", "jiantou06", "shuzi01", "shuzi02", "shuzi03"], null, null, 'LoopOnce', 1, function() {});
+  changeVis("Renwu", true);
+}, function() {});
+
+guizi_animation = 0;
+chouti_animation = 0;
+
 registerOnClick("DKYX", function() {
   operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {});
 }, function() {});
 
 registerOnClick("DKCT", function() {
+  if (guizi_animation == 0) {
+    operateAnimation("PLAY", "CT", null, null, 'LoopOnce', 1, function() {});
+    chouti_animation = 1;
+  } else if (guizi_animation == 1) {
   operateAnimation("PLAY", "CT", null, null, 'LoopOnce', 1, function() {});
+    operateAnimation("PLAY", "GuiMen_G", 0, 75, 'AUTO', -1, function() {
+      guizi_animation = 0;
+    });
+    chouti_animation = 1;
+  }
 }, function() {});
 
 registerOnClick("DKGZ", function() {
-  operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
-  operateAnimation("PLAY", "LaSuan", null, null, 'LoopOnce', 1, function() {});
+
+  if (chouti_animation == 0) {
+    operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+    operateAnimation("PLAY", "LaSuan", null, null, 'LoopOnce', 1, function() {});
+    guizi_animation = 1;
+  }
+  else if (chouti_animation == 1) {
+      operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+      operateAnimation("PLAY", "LaSuan", null, null, 'LoopOnce', 1, function() {});
+        operateAnimation("PLAY", "CT", 0, 50, 'AUTO', -1, function() {
+          chouti_animation = 0;
+        });
+        guizi_animation = 1;
+  }
+
 }, function() {});
 
 registerOnClick("HXD_k", function() {
@@ -578,6 +632,7 @@ registerOnClick("JT6", function() {
 v3dApp.tweenCamera = tweenCamera
 v3dApp.assignMat = assignMat
 v3dApp.operateAnimation = operateAnimation
+v3dApp.changeVis = changeVis
 
 }
 if (window.v3dApp) {
