@@ -4,22 +4,29 @@
   .switch_box{
     position: absolute;
     top: 9.2rem;
-    width: 100%;
+    width: 6.2rem;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 20;
+    left: 50%;
+    margin-left: -3.1rem;
 }
     .switch_box .left{
     width: 0.44rem;
     height: 0.44rem;
     margin-right: 0.125rem;
+    position: absolute;
+    left: 0;
 }
     .switch_box .right{
     width: 0.44rem;
     height: 0.44rem;
     margin-left: 0.125rem;
+    right: 0;
+    position: absolute;
 }
     .switch_box .point{
+        display:none;
     width: 0.3rem;
     height: 0.3rem;
     position: relative;
@@ -30,7 +37,7 @@
     height: 0.3rem;
 }
       .point .inner{display:none;position: absolute;width: 0.18rem;height: 0.18rem;top: 0.06rem;left: 0.06rem;}
-  .panel_box{width:100%;position: absolute;z-index: 1;}
+  .panel_box{width:100%;position: absolute;z-index: 3;}
     .panel_box .panel{ width:100%; }
     .panel_box .panel1{}
     .panel_box .panel2{}
@@ -38,7 +45,7 @@
     .panel_box .panel4{}
       .panel .btn_group{
     justify-content: center;
-    top: 6.3rem;
+    top: 8.6rem;
     position: absolute;
     width: 100%;
     flex-wrap: wrap;
@@ -55,6 +62,8 @@
     top: 7.7rem;
     left: 50%;
     margin-left: -2.53rem;
+    background-color: rgba(0,0,0,0.6);
+    padding: 0.2rem;
 }
     .panel_box .panel3{}
 
@@ -67,65 +76,79 @@
 }
 
 .txt_group .panel3_txt1{
-    width: 3.74rem;
-    height: 0.5rem;
-    margin-left: -1.87rem;
+    width: 4.14rem;
+    height: 0.9rem;
+    margin-left: -2.07rem;
 }
 .panel4_txt1{
-    width: 5.1rem;
-    height: 0.8rem;
-    margin-left: -2.55rem;
+    width: 5.5rem;
+    height: 1.2rem;
+    margin-left: -2.75rem;
 }
 .panel4_txt2{
-    width: 5.1rem;
-    height: 0.8rem;
-    margin-left: -2.55rem;
+    width: 5.5rem;
+    height: 1.2rem;
+    margin-left: -2.75rem;
 }
 .txt_group .panel3_txt2{
-    width: 5.11rem;
-    height: 0.5rem;
-    margin-left: -2.55rem;
+    width: 5.51rem;
+    height: 0.9rem;
+    margin-left: -2.75rem;
 }
-
-.txt_group img{ position:absolute;top:8.2rem; left:50%; }
+.panel_txt{position:absolute;top: 7.2rem;left:50%;background-color: rgba(0,0,0,0.6);padding: 0.2rem;}
+.txt_group img{width:100%;}
     .panel_box .panel5{}
-      .panel5 .poster{
-    width: 5.06rem;
+        .panel5 .poster{
+    width: 6.4rem;
+    position: absolute;
+    left: 0;
+    top: 1rem;
+}
+        .panel5 .title{
+    width: 1.8rem;
     position: absolute;
     left: 50%;
-    margin-left: -2.53rem;
+    margin-left: -0.9rem;
+    top: 8.9rem;
+}
+    .panel_box .panel6{}
+      .panel6 .poster{
+    width: 3.9rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.95rem;
     top: 1.26rem;
 }
-      .panel5 .title{
+      .panel6 .title{
     width: 1.8rem;
     left: 50%;
     margin-left: -0.9rem;
-    top: 6.76rem;
+    top: 8.86rem;
     position: absolute;
 }
-      .panel5 .txt{
+      .panel6 .txt{
     width: 5.08rem;
     left: 50%;
     margin-left: -2.54rem;
     position: absolute;
     top: 7.7rem;
 }
-.panel6{}
-  .panel6 .title{
+.panel7{}
+  .panel7 .title{
     width: 2.24rem;
     position: absolute;
     left: 50%;
     margin-left: -1.12rem;
     top: 1.26rem;
 }
-  .panel6 .pic2{
+  .panel7 .pic2{
     width: 5.72rem;
     position: absolute;
     top: 2.6rem;
     left: 50%;
     margin-left: -2.86rem;
 }
-  .panel6 .pic3{
+  .panel7 .pic3{
     width: 4.26rem;
     top: 6.8rem;
     position: absolute;
@@ -133,8 +156,29 @@
     margin-left: -2.13rem;
 }
 
-.panel{} .button{}
+.panel .button{
+    display:flex;
+             flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    color:#eddab0;
+ }
 .button img{
     width: 0.74rem;
+    margin-bottom: 0.1rem;
 }
-.panel .button-group{ display:flex;justify-content:space-between;width:4.2rem;position:absolute;top:7.1rem;left:50%;margin-left:-2.1rem; }
+.panel .button-group{
+    display:flex;justify-content: space-around;width:4.2rem;position:absolute;top: 8.8rem;left:50%;margin-left:-2.1rem;}
+
+#touch1{
+    position: absolute;width: 2.6rem;height: 1.2rem;left: 50%;margin-left:-1.3rem;z-index: 5;top: 2.6rem;
+}
+#touch2{
+    width: 2.6rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.3rem;
+    top: 4.2rem;
+    z-index: 10;
+    height: 1.9rem;
+}

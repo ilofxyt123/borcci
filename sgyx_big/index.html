@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Borcci</title>
+    <title>柏厨H5三维展厅</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="full-screen" content="true" />
@@ -37,10 +37,8 @@
     <!--菜单页-->
     <div class="container page page_menu z4" id="pageMenu" style="display:none;">
 
-        <img src="../assets/common/menu_bg.png" alt="" class="pic1">
 
         <div class="box">
-            <img src="../assets/common/menu_bg2.png" alt="" class="pic2">
             <img src="../assets/common/menu_1.png" alt="" class="btn btn1" id="menu1">
             <img src="../assets/common/menu_2.png" alt="" class="btn btn2" id="menu2">
             <img src="../assets/common/menu_3.png" alt="" class="btn btn3" id="menu3">
@@ -108,6 +106,10 @@
                 <img src="../assets/point.png" alt="" class="outter">
                 <img src="../assets/point_active.png" alt="" class="inner">
             </div>
+            <div class="point" id="point7" data-index=7>
+                <img src="../assets/point.png" alt="" class="outter">
+                <img src="../assets/point_active.png" alt="" class="inner">
+            </div>
             
             <img src="../assets/arrow_r.png" alt="" class="right" id="next">
         </div>
@@ -132,16 +134,22 @@
                     <div class="button button1" id="panel3_btn1">
                         <img src="../assets/sgyx_big/swiper3_btn1.png" alt="" class="normal">
                         <img src="../assets/sgyx_big/swiper3_btn1_active.png" alt="" class="active" style="display:none;">
+                        <div class="t">台岛呼吸灯</div>
                     </div>
 
                     <div class="button button2" id="panel3_btn2">
                         <img src="../assets/sgyx_big/swiper3_btn3.png" alt="" class="normal">
                         <img src="../assets/sgyx_big/swiper3_btn3_active.png" alt="" class="active" style="display:none;">
+                        <div class="t">蓝牙音箱</div>
                     </div>
                 </div>
                 <div class="txt_group">
-                    <img src="../assets/sgyx_big/swiper3_light_txt.png" alt="" class="panel3_txt1" id="panel3_txt1" style="display:none;">
-                    <img src="../assets/sgyx_big/swiper3_voice_txt.png" alt="" class="panel3_txt2" id="panel3_txt2" style="display:none;">
+                    <div class="panel3_txt1 panel_txt" id="panel3_txt1" style="display:none;">
+                        <img src="../assets/sgyx_big/swiper3_light_txt.png" alt="" >
+                    </div>
+                    <div class="panel3_txt2 panel_txt" id="panel3_txt2" style="display:none;">
+                        <img src="../assets/sgyx_big/swiper3_voice_txt.png">
+                    </div>
                 </div>
             </div>
 
@@ -151,20 +159,34 @@
                     <div class="button button1" id="panel4_btn1">
                         <img src="../assets/sgyx_big/panel4_btn1.png" alt="" class="normal">
                         <img src="../assets/sgyx_big/panel4_btn1_active.png" alt="" class="active" style="display:none;">
+                        <div class="t">抽屉</div>
                     </div>
 
                     <div class="button button2" id="panel4_btn2">
                         <img src="../assets/sgyx_big/panel4_btn2.png" alt="" class="normal">
                         <img src="../assets/sgyx_big/panel4_btn2_active.png" alt="" class="active" style="display:none;">
+                        <div class="t">柜门</div>
                     </div>
                 </div>
                 <div class="txt_group">
-                    <img src="../assets/sgyx_big/panel4_txt1.png" alt="" class="panel4_txt1" id="panel4_txt1" style="display:none;">
-                    <img src="../assets/sgyx_big/panel4_txt2.png" alt="" class="panel4_txt2" id="panel4_txt2" style="display:none;">
+                    <div class="panel4_txt1 panel_txt" id="panel4_txt1" style="display:none;">
+                        <img src="../assets/sgyx_big/panel4_txt1.png" alt="" >
+                    </div>
+                    <div class="panel4_txt2 panel_txt"  id="panel4_txt2" style="display:none;">
+                        <img src="../assets/sgyx_big/panel4_txt1.png" alt="">
+                    </div>
                 </div>
             </div>
-            <!--环保材质-->
+
+            <!--人机高度-->
             <div class="panel panel5" id="panel5" style="display:none;">
+
+                <img src="../assets/sgyx_big/panel_man.png" alt="" class="poster">
+                <img src="../assets/sgyx_big/panel_man_tag.png" alt="" class="title">
+
+            </div>
+            <!--环保材质-->
+            <div class="panel panel6" id="panel6" style="display:none;">
 
                 <img src="../assets/sgyx_big/swiper4_poster.png" alt="" class="poster">
                 <img src="../assets/sgyx_big/swiper4_title.png" alt="" class="title">
@@ -173,7 +195,11 @@
             </div>
 
             <!--联系我们-->
-            <div class="panel panel6" id="panel6" style="display:none;">
+            <div class="panel panel7" id="panel7" style="display:none;">
+
+                <div id="touch1"></div>
+                <div id="touch2"></div>
+                <div id="weibo"></div>
 
                 <img src="../assets/sgyx_big/contact_title.png" alt="" class="title">
                 <img src="../assets/sgyx_big/center.png" alt="" class="pic2">
@@ -184,12 +210,19 @@
 
     </div>
 
+    <div class="container hp" id="hp" style="display:none;z-index:999;">
+        <div class="hp_box">
+            <img src="../assets/common/hp.png" class="phone">
+        </div>
+    </div>
+
 </div>
 
 <script src="../lib/v3d.js"></script>
 <script src="./js/SGYX_D.min.js?v1"></script>
-<!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+ <!--<script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>-->
 <script src="../lib/jquery.min.js"></script>
+<!--<script src="../common/share.js"></script>-->
 
 <script src="../common/Music.min.js"></script>
 <script src="../common/Router.min.js"></script>
@@ -198,6 +231,7 @@
 <audio id="voice" src="../assets/music/voice.mp3" loop="true"></audio>
 
 <script>
+    detectHP()
     var js;
     js = '<' + 'script ' + 'src=' + "js/index.min.js?v" + Math.random() + '>' + '</' + 'script' + '>'
     document.write(js)

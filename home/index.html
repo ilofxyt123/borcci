@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Borcci</title>
+    <title>柏厨H5三维展厅</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="full-screen" content="true" />
     <meta name="screen-orientation" content="portrait" />
     <meta name="x5-fullscreen" content="true" />
     <meta name="360-fullscreen" content="true" />
-    <script src="../common/resetRem.js"></script>
+    <script src="../common/resetRem.min.js"></script>
 
     <!--<script>
         var css;
@@ -38,10 +38,8 @@
     <!--菜单页-->
     <div class="container page page_menu z2" id="pageMenu" style="display:none;">
 
-        <img src="../assets/common/menu_bg.png" alt="" class="pic1">
 
         <div class="box">
-            <img src="../assets/common/menu_bg2.png" alt="" class="pic2">
             <img src="../assets/common/menu_1.png" alt="" class="btn btn1" id="menu1">
             <img src="../assets/common/menu_2.png" alt="" class="btn btn2" id="menu2">
             <img src="../assets/common/menu_3.png" alt="" class="btn btn3" id="menu3">
@@ -54,14 +52,13 @@
      <div class="container page pageSecond z2" id="pageSecond" style="display:none;">
         <img src="../assets/home/small.png" alt="" class="pic1" id="small">
         <img src="../assets/home/big.png" alt="" class="pic2" id="big">
-    </div>
+     </div>
 
     <!--二级导航__忆江南大小户型-->
     <div class="container page pageSecond z2" id="pageSecond2" style="display:none;">
         <img src="../assets/home/yjn_small_btn.png" alt="" class="pic1" id="yjn_small">
         <img src="../assets/home/yjn_big_btn.png" alt="" class="pic2" id="yjn_big">
     </div>
-
 
     <!--首页-->
     <div class="container page page1 z1" id="page1">
@@ -78,22 +75,24 @@
         
     </div>
 
-   
+    <div class="container hp" id="hp" style="display:none;z-index:999;">
+        <div class="hp_box">
+            <img src="../assets/common/hp.png" class="phone">
+        </div>
+    </div>
 
 </div>
 
 
-</div>
-
-
-
-<!--<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
 <script src="../lib/jquery.min.js"></script>
+<script src="../common/share.js?v2"></script>
 
 <script src="../common/Router.js"></script>
 <script>
+    detectHP()
     var js;
-    js = '<' + 'script ' + 'src=' + "js/index.js?v" + Math.random() + '>' + '</' + 'script' + '>'
+    js = '<' + 'script ' + 'src=' + "js/index.min.js?v" + Math.random() + '>' + '</' + 'script' + '>'
     document.write(js)
 </script>
 </body>
