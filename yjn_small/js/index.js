@@ -115,37 +115,37 @@
 
   var currentMatIndex = 0
   //材质切换
-  $buttonMat1.on("touchend",function(){
+  $buttonMat1.on("mouseup",function(){
     v3dApp.assignMat("GuiZi_Z", "GuiZi_Z_chabai");
     v3dApp.assignMat("GuiZi_Znei", "GuiZi_Znei_chabai");
     v3dApp.assignMat("DiX", "DiX_chabai");
     currentMatIndex = 0
   })
-  $buttonMat2.on("touchend",function(){
+  $buttonMat2.on("mouseup",function(){
     v3dApp.assignMat("GuiZi_Z", "GuiZi_Z_wahui");
     v3dApp.assignMat("GuiZi_Znei", "GuiZi_Znei_wahui");
     v3dApp.assignMat("DiX", "DiX_wahui");
     currentMatIndex = 1
   })
-  $buttonMat3.on("touchend",function(){
+  $buttonMat3.on("mouseup",function(){
     v3dApp.assignMat("GuiZi_Z", "GuiZi_Z_zise");
     v3dApp.assignMat("GuiZi_Znei", "GuiZi_Znei_zise");
     v3dApp.assignMat("DiX", "DiX_zise");
     currentMatIndex = 2
   })
-  $buttonMat4.on("touchend",function(){
+  $buttonMat4.on("mouseup",function(){
     v3dApp.assignMat("GuiZi_Y", "GuiZi_Y_putiz");
     v3dApp.assignMat("GuiZi_Ynei", "GuiZi_Ynei_putiz");
     v3dApp.assignMat("DiD", "DiD_putiz");
     currentMatIndex = 3
   })
-  $buttonMat5.on("touchend",function(){
+  $buttonMat5.on("mouseup",function(){
     v3dApp.assignMat("GuiZi_Y", "GuiZi_Y_guiyujin");
     v3dApp.assignMat("GuiZi_Ynei", "GuiZi_Ynei_guiyujin");
     v3dApp.assignMat("DiD", "DiD_guiyujin");
     currentMatIndex = 4
   })
-  $buttonMat6.on("touchend",function(){
+  $buttonMat6.on("mouseup",function(){
     v3dApp.assignMat("GuiZi_Y", "GuiZi_Y_jiahuah");
     v3dApp.assignMat("GuiZi_Ynei", "GuiZi_Ynei_jianghuah");
     v3dApp.assignMat("DiD", "DiD_jianghuah");

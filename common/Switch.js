@@ -12,6 +12,7 @@ function Switch( number, JTs, hidePanel ){
   this.number = number ? number : this.$allInner.length
   this.JTs = JTs
   this.callbacks = {}//镜头回调
+    this.onLeaves = {}
     hidePanel = hidePanel ? hidePanel : [4,5]
     this.hidePanel = hidePanel//需要隐藏canvas的页面
 
@@ -68,7 +69,6 @@ Switch.prototype = {
 
     }
 
-
   },
 
   next : function(){
@@ -85,38 +85,51 @@ Switch.prototype = {
 
       var scope = this
 
-      this.$button.on("touchend",function( e ){
+      this.$button.on("mouseup",function( e ){
 
         var index = e.currentTarget.dataset['index']
 
           index = Number( index )
+
         scope.switchTab( index )
 
       })
 
       //下一个
-      this.$buttonNext.on("touchend",function(){
+      this.$buttonNext.on("mouseup",function(){
 
         if( scope.currentPanel == scope.number ){
 
           return
 
         }
-        var index = Number( scope.currentPanel ) + 1
-        scope.switchTab( index )
+
+        var nowIndex = scope.currentPanel
+          if(scope.onLeaves.hasOwnProperty(nowIndex)){
+              scope.onLeaves[ nowIndex ]()
+          }
+
+
+        var nextIndex = Number( scope.currentPanel ) + 1
+
+        scope.switchTab( nextIndex )
 
       })
 
       //上
-      this.$buttonPrev.on("touchend",function(){
+      this.$buttonPrev.on("mouseup",function(){
 
         if( scope.currentPanel == 1 ){
 
           return
 
         }
-        var index = Number ( scope.currentPanel ) - 1
-        scope.switchTab( index )
+          var nowIndex = scope.currentPanel
+          if(scope.onLeaves.hasOwnProperty(nowIndex)){
+              scope.onLeaves[ nowIndex ]()
+          }
+        var nextIndex = Number ( scope.currentPanel ) - 1
+        scope.switchTab( nextIndex )
         
       })
 

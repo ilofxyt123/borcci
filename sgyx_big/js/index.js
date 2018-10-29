@@ -1,4 +1,4 @@
-// ~function(){
+~function(){
 
   //材质按钮
   var $buttonMat1 = $("#btn1")
@@ -66,35 +66,33 @@
     ],
   }
   //切换按钮
-  var s = new Switch(6,JTs,[5,6])
+  var s = new Switch(7,JTs,[5,6,7])
+
+    s.onLeaves = {
+      5:function(){
+          $("#logo").show()
+      }
+    }
 
   s.callbacks = {
     1:function(){
 
-        closeLight()
-        closeVoice()
         v3dApp.tweenCamera("PhysCamera007", "PhysCamera007.Target", 1);
 
     },
     2:function(){
 
-        closeLight()
-        closeVoice()
         v3dApp.tweenCamera("PhysCamera002", "PhysCamera002.Target", 1);
 
     },
     3:function(){
 
         v3dApp.tweenCamera("PhysCamera005", "PhysCamera005.Target", 1);
-        closeLight()
-        closeVoice()
 
     },
     4:function(){
 
         v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
-        closeLight()
-        closeVoice()
 
     },
     5:function(){
@@ -102,9 +100,7 @@
         $("canvas").css({
             'opacity':0
         })
-
-        closeLight()
-        closeVoice()
+        $("#logo").hide()
 
     },
     6:function(){
@@ -113,9 +109,6 @@
             'opacity':0
         })
 
-        closeLight()
-        closeVoice()
-
     },
 
   }
@@ -123,19 +116,19 @@
 
   var currentMatIndex = 0
   //材质切换
-  $buttonMat1.on("touchend",function(){
+  $buttonMat1.on("mouseup",function(){
     v3dApp.assignMat("GZ", "GZ_gtz_tex");
     v3dApp.assignMat("TZ", "TZ_nyj_off");
       v3dApp.assignMat("GuiMen", "GM_gtz");
     currentMatIndex = 0
   })
-  $buttonMat2.on("touchend",function(){
+  $buttonMat2.on("mouseup",function(){
     v3dApp.assignMat("GZ", "GZ_szb_tex");
     v3dApp.assignMat("TZ", "TZ_yyh_off");
       v3dApp.assignMat("GuiMen", "GM_szb");
     currentMatIndex = 1
   })
-  $buttonMat3.on("touchend",function(){
+  $buttonMat3.on("mouseup",function(){
     v3dApp.assignMat("GZ", "GZ_ych_tex");
     v3dApp.assignMat("TZ", "TZ_bsh_off");
       v3dApp.assignMat("GuiMen", "GM_ych");
@@ -152,7 +145,22 @@
         onTouch:function(){
 
             openLight()
-            closeVoice()
+
+            if(voice_open){
+                closeVoice()
+            }
+            if(ct_open){
+                closeDrawer()
+
+            }
+            if(gz_open){
+                closeCupboard()
+            }
+
+        },
+        onClose : function(){
+
+            closeLight()
 
         },
 
@@ -165,11 +173,25 @@
         txtID:'panel3_txt2',
         group:'panel3',
         onTouch:function(){
-
             openVoice()
+
             closeLight()
+            if(ct_open){
+                closeDrawer()
+
+            }
+            if(gz_open){
+                closeCupboard()
+
+            }
 
         },
+        onClose : function(){
+
+            closeVoice()
+
+        },
+
 
     })
 
@@ -181,16 +203,28 @@
         group:'panel4',
         onTouch:function(){
 
-          closeVoice()
+            openDrawer()
+
+            if(gz_open){
+                closeCupboard()
+
+            }
+            if(voice_open){
+                closeVoice()
+
+            }
           closeLight()
-          v3dApp.operateAnimation("PLAY", "CT", null, null, 'LoopOnce', 1, function() {});
-        v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
+
+
+        },
+        onClose : function(){
+
+            closeDrawer()
 
         },
 
-  })
 
-
+    })
 
     //柜子 镜头4
     var button4 = new Button({
@@ -200,15 +234,32 @@
         group:'panel4',
         onTouch:function(){
 
-            closeVoice()
+            openCupboard()
+
+            if(ct_open){
+                closeDrawer()
+
+            }
+            if(voice_open){
+                closeVoice()
+
+            }
             closeLight()
-            v3dApp.operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
-            v3dApp.tweenCamera("PhysCamera004", "PhysCamera004.Target", 1);
+
+
+        },
+        onClose : function(){
+
+            closeCupboard()
 
         },
 
+
     })
 
+    var voice_open = false
+    var gz_open = false
+    var ct_open = false
   function closeLight(){
 
     LIGHTs[ currentMatIndex ][0]()
@@ -216,8 +267,25 @@
   }
   function closeVoice(){
 
+      voice_open = false
       music.pause()
+      v3dApp.operateAnimation("STOP", "YX", null, null, 'LoopOnce', 1, function() {})
+      v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', -1, function() {})
   }
+    function closeDrawer(){
+
+      ct_open = false
+        v3dApp.operateAnimation("STOP", "CT", null, null, 'LoopOnce', 1, function() {});
+        v3dApp.operateAnimation("PLAY", "CT", null, null, 'LoopOnce', -1, function() {});
+
+    }
+    function closeCupboard(){
+
+        gz_open = false
+        v3dApp.operateAnimation("STOP", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+        v3dApp.operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', -1, function() {});
+
+    }
   function openLight(){
 
       v3dApp.tweenCamera("PhysCamera005", "PhysCamera005.Target", 1);
@@ -226,13 +294,52 @@
   }
   function openVoice(){
 
+      voice_open = true
       music.play()
-      v3dApp.tweenCamera("PhysCamera006", "PhysCamera006.Target", 1);
+      v3dApp.tweenCamera("PhysCamera006", "PhysCamera006.Target", 1)
+      v3dApp.operateAnimation("STOP", "YX", null, null, 'LoopOnce', 1, function() {})
       v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {})
 
   }
+function openDrawer(){
+
+      ct_open = true
+    v3dApp.operateAnimation("STOP", "CT", null, null, 'LoopOnce', 1, function() {});
+    v3dApp.operateAnimation("PLAY", "CT", null, null, 'LoopOnce', 1, function() {});
+    v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
+
+}
+
+function openCupboard(){
+
+      gz_open = true
+    v3dApp.operateAnimation("STOP", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+    v3dApp.operateAnimation("PLAY", "GuiMen_G", null, null, 'LoopOnce', 1, function() {});
+    v3dApp.tweenCamera("PhysCamera004", "PhysCamera004.Target", 1);
+
+}
+
+$("#touch1").on("mouseup",function(){
+
+    window.location.href = 'http://www.borcci.com/channel/5611ff70b5f54781a15f4cd25ba87559.html'
+
+})
+
+$("#touch2").on("mouseup",function(){
+
+    window.location.href = 'https://bochu.tmall.com'
+
+})
+
+$("#weibo").on("mouseup",function(){
+
+    window.location.href = 'https://weibo.com/borccikitchen'
+
+})
 
 
 
 
-// }()
+
+
+}()
