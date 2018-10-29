@@ -1,29 +1,36 @@
-.page_player{}
+.page_player{
+}
 .player{}
 
 .switch_box{
     position: absolute;
     top: 9.2rem;
-    width: 100%;
-    justify-content: center;
+    width: 6.2rem;
     align-items: center;
     z-index: 2;
+    margin-left: -3.1rem;
+    left: 50%;
 }
 .switch_box .left{
     width: 0.44rem;
     height: 0.44rem;
     margin-right: 0.125rem;
+    position: absolute;
+    left: 0;
 }
 .switch_box .right{
     width: 0.44rem;
     height: 0.44rem;
     margin-left: 0.125rem;
+    position: absolute;
+    right: 0;
 }
 .switch_box .point{
     width: 0.3rem;
     height: 0.3rem;
     position: relative;
     margin: 0 0.125rem;
+    display: none;
 }
 .point .outter{
     width: 0.3rem;
@@ -39,7 +46,7 @@
 .panel_box .panel4{  }
 .panel .btn_group{
     justify-content: center;
-    top: 6.3rem;
+    top: 8.8rem;
     position: absolute;
     width: 100%;
     flex-wrap: wrap;
@@ -51,12 +58,15 @@
 }
 .panel_box .panel2{}
 .panel2 .txt{
-    width: 5.06rem;
+    width: 5.46rem;
     position: absolute;
-    top: 7.7rem;
+    top: 7.4rem;
     left: 50%;
-    margin-left: -2.53rem;
+    margin-left: -2.73rem;
+    padding:0.2rem;
+    background-color: rgba(0,0,0,0.6);
 }
+.panel2 .txt img{width:100%}
 .panel_box .panel3{}
 
 
@@ -66,69 +76,101 @@
 }
 .panel3 .txt_group{
 }
-
 .txt_group .panel3_txt1{
-    width: 3.74rem;
-    height: 0.5rem;
-    margin-left: -1.87rem;
+    width: 4.14rem;
+    height: 0.9rem;
+    margin-left: -2.07rem;
 }
 .txt_group .panel3_txt2{
-    width: 5.11rem;
-    height: 0.8rem;
-    margin-left: -2.55rem;
+    width: 5.51rem;
+    height: 1.2rem;
+    margin-left: -2.75rem;
 }
 .txt_group .panel3_txt3{
-    width: 5.11rem;
-    height: 0.5rem;
-    margin-left: -2.55rem;
+    width: 5.51rem;
+    height: 0.9rem;
+    margin-left: -2.75rem;
 }
-.txt_group img{ position:absolute;top:8.2rem; left:50%; }
-.panel_box .panel4{}
+.panel_txt{position:absolute;top: 7.3rem;left:50%;background-color: rgba(0,0,0,0.6);padding: 0.2rem;}
+
+.txt_group img{
+    width: 100%;
+}
 .panel4 .poster{
-    width: 5.06rem;
+    width: 6.4rem;
     position: absolute;
-    left: 50%;
-    margin-left: -2.53rem;
-    top: 1.26rem;
+    left: 0;
+    top: 1rem;
 }
 .panel4 .title{
     width: 1.8rem;
+    position: absolute;
     left: 50%;
     margin-left: -0.9rem;
-    top: 6.76rem;
+    top: 8.9rem;
+}
+.panel_box .panel5{}
+.panel5 .poster{
+    width: 3.9rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.95rem;
+    top: 1.26rem;
+}
+.panel5 .title{
+    width: 1.8rem;
+    left: 50%;
+    margin-left: -0.9rem;
+    top: 8.86rem;
     position: absolute;
 }
-.panel4 .txt{
+.panel5 .txt{
     width: 5.08rem;
     left: 50%;
     margin-left: -2.54rem;
     position: absolute;
     top: 7.7rem;
 }
-.panel5{}
-.panel5 .title{
+.panel6{}
+.panel6 .title{
     width: 2.24rem;
     position: absolute;
     left: 50%;
     margin-left: -1.12rem;
     top: 1.26rem;
 }
-.panel5 .pic2{
+.panel6 .pic2{
     width: 5.72rem;
     position: absolute;
     top: 2.6rem;
     left: 50%;
     margin-left: -2.86rem;
 }
-.panel5 .pic3{
+.panel6 .pic3{
     width: 4.26rem;
     top: 6.8rem;
     position: absolute;
     left: 50%;
     margin-left: -2.13rem;
 }
-.panel{} .button{}
+.panel .button{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    color:#eddab0;
+}
 .button img{
     width: 0.74rem;
 }
-.panel .button-group{ display:flex;justify-content:space-between;width:4.2rem;position:absolute;top:7.1rem;left:50%;margin-left:-2.1rem; }
+.panel .button-group{display:flex;justify-content:space-between;width:4.2rem;position:absolute;top: 8.8rem;left:50%;margin-left:-2.1rem;}
+#touch1{position: absolute;width: 2.6rem;height: 1.2rem;left: 50%;margin-left:-1.3rem;z-index: 5;top: 2.6rem;}
+#touch2{
+    width: 2.6rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.3rem;
+    top: 4.2rem;
+    z-index: 10;
+    height: 1.9rem;
+}

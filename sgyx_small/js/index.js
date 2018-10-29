@@ -69,27 +69,24 @@
     ],
   }
   //切换按钮
-  var s = new Switch(5,JTs)
-  
+  var s = new Switch(6,JTs,[4,5,6])
+  s.onLeaves = {
+    4:function(){
+        $("#logo").show()
+    }
+  }
   s.callbacks = {
     1:function(){
 
-        closeLight()
-        closeVoice()
         v3dApp.tweenCamera("PhysCamera007", "PhysCamera007.Target", 1);
 
     },
     2:function(){
 
-        closeLight()
-        closeVoice()
         v3dApp.tweenCamera("PhysCamera002", "PhysCamera002.Target", 1);
 
     },
     3:function(){
-
-        closeLight()
-        closeVoice()
 
     },
     4:function(){
@@ -98,8 +95,9 @@
         'opacity':0
       })
 
-        closeLight()
-        closeVoice()
+        $("#logo").hide()
+
+
     },
     5:function(){
 
@@ -107,8 +105,7 @@
         'opacity':0
       })
 
-        closeLight()
-        closeVoice()
+
     },
 
   }
@@ -146,8 +143,12 @@
         onTouch:function(){
 
           openLight()
-          closeVoice()
-          closeDrawer()
+            if(voice_open){
+                closeVoice()
+            }
+            if(ct_open){
+                closeDrawer()
+            }
 
         },
         onClose:function(){
@@ -167,9 +168,12 @@
         group:'panel3',
         onTouch:function(){
 
-          closeVoice()
+            openDrawer()
+            if(voice_open){
+                closeVoice()
+
+            }
           closeLight()
-          openDrawer()
 
         },
         onClose : function(){
@@ -190,7 +194,11 @@
 
             openVoice()
             closeLight()
-            closeDrawer()
+
+            if(ct_open){
+                closeDrawer()
+
+            }
 
         },
         onClose : function(){
@@ -201,6 +209,8 @@
 
     })
 
+    var voice_open = false
+    var ct_open = false
   function closeLight(){
 
     LIGHTs[ currentMatIndex ][0]()
@@ -209,15 +219,17 @@
 
   function closeDrawer(){
 
-      v3dApp.operateAnimation("PLAY", "chouti", null, null, 'LoopOnce', 1, function() {});
+      ct_open = false
       v3dApp.operateAnimation("STOP", "chouti", null, null, 'LoopOnce', 1, function() {});
+      v3dApp.operateAnimation("PLAY", "chouti", null, null, 'LoopOnce', -1, function() {});
 
   }
   function closeVoice(){
 
-      v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {})
-      v3dApp.operateAnimation("STOP", "YX", null, null, 'LoopOnce', 1, function() {})
+      voice_open = false
       music.pause()
+      v3dApp.operateAnimation("STOP", "YX", null, null, 'LoopOnce', 1, function() {})
+      v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', -1, function() {})
 
   }
 
@@ -230,19 +242,39 @@
 
   function openDrawer(){
 
+      ct_open = true
+      v3dApp.operateAnimation("STOP", "chouti", null, null, 'LoopOnce', 1, function() {});
       v3dApp.operateAnimation("PLAY", "chouti", null, null, 'LoopOnce', 1, function() {});
       v3dApp.tweenCamera("PhysCamera003", "PhysCamera003.Target", 1);
 
   }
   function openVoice(){
 
+      voice_open = true
       music.play()
       v3dApp.tweenCamera("PhysCamera006", "PhysCamera006.Target", 1);
+      v3dApp.operateAnimation("STOP", "YX", null, null, 'LoopOnce', 1, function() {})
       v3dApp.operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {})
 
   }
 
+$("#touch1").on("mouseup",function(){
 
+    window.location.href = 'http://www.borcci.com/channel/5611ff70b5f54781a15f4cd25ba87559.html'
+
+})
+
+$("#touch2").on("mouseup",function(){
+
+    window.location.href = 'https://bochu.tmall.com'
+
+})
+
+$("#weibo").on("mouseup",function(){
+
+    window.location.href = 'https://weibo.com/borccikitchen'
+
+})
 
 
 // }()

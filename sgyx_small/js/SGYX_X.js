@@ -169,15 +169,16 @@ window.addEventListener('load', function() {
         // app.ExternalInterface.myJSFunction = function() {
         //     console.log('Hello, World!');
         // }
-
     }
 
     function runCode(app) {
         // add your code here, e.g. console.log('Hello, World!');
 
         // app.controls.maxDistance = 2000
-        // app.camera.position.z = 2000
+        // app.camera.position.z = 1500
         app.scene.background = null
+        app.controls.minPolarAngle = 0
+        app.controls.maxPolarAngle = Math.PI / 2
 
 
     }
