@@ -12,6 +12,7 @@ function Switch( number, JTs, hidePanel ){
   this.number = number ? number : this.$allInner.length
   this.JTs = JTs
   this.callbacks = {}//镜头回调
+    this.onLeaves = {}
     hidePanel = hidePanel ? hidePanel : [4,5]
     this.hidePanel = hidePanel//需要隐藏canvas的页面
 
@@ -68,7 +69,6 @@ Switch.prototype = {
 
     }
 
-
   },
 
   next : function(){
@@ -90,6 +90,7 @@ Switch.prototype = {
         var index = e.currentTarget.dataset['index']
 
           index = Number( index )
+
         scope.switchTab( index )
 
       })
@@ -102,8 +103,16 @@ Switch.prototype = {
           return
 
         }
-        var index = Number( scope.currentPanel ) + 1
-        scope.switchTab( index )
+
+        var nowIndex = scope.currentPanel
+          if(scope.onLeaves.hasOwnProperty(nowIndex)){
+              scope.onLeaves[ nowIndex ]()
+          }
+
+
+        var nextIndex = Number( scope.currentPanel ) + 1
+
+        scope.switchTab( nextIndex )
 
       })
 
@@ -115,8 +124,12 @@ Switch.prototype = {
           return
 
         }
-        var index = Number ( scope.currentPanel ) - 1
-        scope.switchTab( index )
+          var nowIndex = scope.currentPanel
+          if(scope.onLeaves.hasOwnProperty(nowIndex)){
+              scope.onLeaves[ nowIndex ]()
+          }
+        var nextIndex = Number ( scope.currentPanel ) - 1
+        scope.switchTab( nextIndex )
         
       })
 
