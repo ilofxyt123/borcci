@@ -507,8 +507,6 @@ function swizzleVec3(vec) {
             }
         }
 
-
-
 operateAnimation("STOP", ["jiantou001", "jiantou02", "jiantou03", "jiantou04", "jiantou05", "jiantou06", "biaoxian01", "biaoxian02", "biaoxian03", "biaoxian04", "biaoxian05", "biaoxian06", "A860", "A910", "A960", "B810", "B860", "B910", "C710", "C760", "C810"], null, null, 'AUTO', 1, function() {});
 changeVis(["Renwu", "ZI155_163", "ZI164_171", "ZI172_179"], false);
 
