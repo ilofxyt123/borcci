@@ -39,35 +39,17 @@
 
             var instance = this
 
-            this.$el.on("mouseup",function( e ){
+            this.$el.on("mouseup",function(){
 
                 if( instance.isActive ){
 
                     instance.close()
-                    instance.onClose()
-
-                    Button.NOWGROUP = ''
-                    Button.ActiveIndex = ''
 
                 }
 
                 else{
 
-                    instance._open()
-                    instance.onTouch( e )
-
-                    //先把另一个按钮关了
-                    if( Button.NOWGROUP != '' ){
-
-                        Button.GROUP[ Button.NOWGROUP ][ Button.ActiveIndex ].close()
-
-                    }
-
-
-                    //记录当前按钮的group
-                    Button.NOWGROUP = instance.group
-                    //记录当前按钮的Index
-                    Button.ActiveIndex = instance.index
+                    instance.open()
 
                 }
 
@@ -75,12 +57,26 @@
 
         },
 
-        _open : function(){
+        open : function(){
 
             this.isActive = true
             this.$el_active.show()
             this.$el_normal.hide()
             this.$txt.show()
+
+            //先把另一个按钮关了
+            if( Button.NOWGROUP != '' ){
+
+                Button.GROUP[ Button.NOWGROUP ][ Button.ActiveIndex ].close()
+
+            }
+
+            //记录当前按钮的group
+            Button.NOWGROUP = this.group
+            //记录当前按钮的Index
+            Button.ActiveIndex = this.index
+
+            this.onTouch()
 
         },
 
@@ -91,6 +87,11 @@
             this.$el_active.hide()
             this.$el_normal.show()
             this.$txt.hide()
+
+            Button.NOWGROUP = ''
+            Button.ActiveIndex = ''
+
+            this.onClose()
 
         }
 

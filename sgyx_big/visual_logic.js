@@ -105,7 +105,7 @@ PL.init = function(appInstance, initOptions) {
         _pGlob.fadeAnnotations = initOptions.fadeAnnotations;
     }
 
-var guizi_animation, chouti_animation;
+var chouti_animation, guizi_animation;
 
 
         function getSceneByAction(action) {
@@ -507,28 +507,39 @@ function swizzleVec3(vec) {
             }
         }
 
+operateAnimation("STOP", ["jiantou001", "jiantou02", "jiantou03", "jiantou04", "jiantou05", "jiantou06", "biaoxian01", "biaoxian02", "biaoxian03", "biaoxian04", "biaoxian05", "biaoxian06", "A860", "A910", "A960", "B810", "B860", "B910", "C710", "C760", "C810"], null, null, 'AUTO', 1, function() {});
+changeVis(["Renwu", "ZI155_163", "ZI164_171", "ZI172_179"], false);
 
+registerOnClick("XL670", function() {
+  operateAnimation("PLAY", ["jiantou001", "jiantou02", "jiantou03", "jiantou04", "jiantou05", "jiantou06", "biaoxian01", "biaoxian02", "biaoxian03", "biaoxian04", "biaoxian05", "biaoxian06", "A860", "B810", "C710"], null, null, 'LoopOnce', 1, function() {});
+  changeVis(["Renwu", "ZI155_163", "A860", "B810", "C710"], true);
+  changeVis(["ZI164_171", "ZI172_179", "A910", "A960", "B860", "B910", "C760", "C810"], false);
+}, function() {});
+
+registerOnClick("XL720", function() {
+  operateAnimation("PLAY", ["jiantou001", "jiantou02", "jiantou03", "jiantou04", "jiantou05", "jiantou06", "biaoxian01", "biaoxian02", "biaoxian03", "biaoxian04", "biaoxian05", "biaoxian06", "A910", "B860", "C760"], null, null, 'LoopOnce', 1, function() {});
+  changeVis(["Renwu", "ZI164_171", "A910", "B860", "C760"], true);
+  changeVis(["ZI155_163", "ZI172_179", "A860", "A960", "B810", "B910", "C710", "C810"], false);
+}, function() {});
+
+registerOnClick("XL770", function() {
+  operateAnimation("PLAY", ["jiantou001", "jiantou02", "jiantou03", "jiantou04", "jiantou05", "jiantou06", "biaoxian01", "biaoxian02", "biaoxian03", "biaoxian04", "biaoxian05", "biaoxian06", "A960", "B910", "C810"], null, null, 'LoopOnce', 1, function() {});
+  changeVis(["Renwu", "ZI172_179", "A960", "B910", "C810"], true);
+  changeVis(["ZI155_163", "ZI164_171", "A860", "A910", "B810", "B860", "C710", "C760"], false);
+}, function() {});
 
 operateAnimation("STOP", "YX", null, null, 'AUTO', 1, function() {});
 operateAnimation("STOP", "GuiMen_G", null, null, 'AUTO', 1, function() {});
 operateAnimation("STOP", "CT", null, null, 'AUTO', 1, function() {});
 operateAnimation("STOP", "LaSuan", null, null, 'AUTO', 1, function() {});
 
-changeVis("Renwu", false);
-
-operateAnimation("STOP", ["biaoxian01", "biaoxian02", "biaoxian03", "biaoxian04", "biaoxian05", "biaoxian06", "jiantou01", "jiantou02", "jiantou03", "jiantou04", "jiantou05", "jiantou06", "shuzi01", "shuzi02", "shuzi03"], null, null, 'AUTO', 1, function() {});
-
-registerOnClick("RenJi", function() {
-  operateAnimation("PLAY", ["biaoxian01", "biaoxian02", "biaoxian03", "biaoxian04", "biaoxian05", "biaoxian06", "jiantou01", "jiantou02", "jiantou03", "jiantou04", "jiantou05", "jiantou06", "shuzi01", "shuzi02", "shuzi03"], null, null, 'LoopOnce', 1, function() {});
-  changeVis("Renwu", true);
-}, function() {});
-
-guizi_animation = 0;
-chouti_animation = 0;
-
 registerOnClick("DKYX", function() {
   operateAnimation("PLAY", "YX", null, null, 'LoopOnce', 1, function() {});
 }, function() {});
+
+chouti_animation = 0;
+
+guizi_animation = 0;
 
 registerOnClick("DKCT", function() {
   if (guizi_animation == 0) {
